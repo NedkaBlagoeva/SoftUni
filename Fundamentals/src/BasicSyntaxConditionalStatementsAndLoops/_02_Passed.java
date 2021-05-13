@@ -7,7 +7,7 @@ public class _02_Passed {
         Scanner scan = new Scanner(System.in);
         double input = Double.parseDouble(scan.nextLine());
 
-        if (input >= 3){
+        if (input >= 3) {
             System.out.println("Passed!");
         }
     }

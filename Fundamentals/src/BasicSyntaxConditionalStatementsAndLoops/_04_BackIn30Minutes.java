@@ -9,15 +9,15 @@ public class _04_BackIn30Minutes {
         int hours = Integer.parseInt(scan.nextLine());
         int minutes = Integer.parseInt(scan.nextLine());
 
-        if (minutes > 29){
-            hours ++;
+        if (minutes > 29) {
+            hours++;
             minutes = minutes + 30 - 60;
-        }else{
+        } else {
             minutes += 30;
         }
-        if(hours > 23){
+        if (hours > 23) {
             hours = 0;
         }
-        System.out.printf("%d:%02d", hours,minutes);
+        System.out.printf("%d:%02d", hours, minutes);
     }
 }
