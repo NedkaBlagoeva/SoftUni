@@ -1,3 +1,5 @@
+package BasicSyntaxConditionalStatementsAndLoops_Lab;
+
 import java.util.Scanner;
 
 public class _10_MultiplicationTable {
