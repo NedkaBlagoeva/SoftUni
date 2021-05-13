@@ -2,7 +2,7 @@ package BasicSyntaxConditionalStatementsAndLoops;
 
 import java.util.Scanner;
 
-public class PassedOrFailed_03 {
+public class _03_PassedOrFailed {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         double input = Double.parseDouble(scan.nextLine());
