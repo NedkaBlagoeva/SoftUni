@@ -6,7 +6,14 @@ import java.util.Scanner;
 public class _03_ExactSumOfRealNumbers {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        BigDecimal n = Double.parseDouble(scan.nextLine());
-        while ()
+        int n = Integer.parseInt(scan.nextLine());
+        BigDecimal sum;
+        for (int i = 1; i <= n; i++) {
+            String input = scan.nextLine();
+            BigDecimal number = new BigDecimal(input);
+            sum = sum.add(number);
+
+        }
+        System.out.println(sum);
     }
 }
