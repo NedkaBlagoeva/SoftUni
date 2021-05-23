@@ -11,7 +11,7 @@ public class _09_PadawanEquipment {
         double lightsabrePrice = Double.parseDouble(scan.nextLine());
         double robePrice = Double.parseDouble(scan.nextLine());
         double beltPrice = Double.parseDouble(scan.nextLine());
-        double sum = 0;
+        double sum = 0.0;
 
         double moneyForLightsabres = Math.ceil(studentsCount * 1.1) * lightsabrePrice;
         double moneyForRobes = studentsCount * robePrice;
