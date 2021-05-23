@@ -8,12 +8,12 @@ public class _09_SumOfOddNumbers {
 
         int n = Integer.parseInt(scan.nextLine());
         int sum = 0;
-        int temp = 0;
+        int oddNumber = 0;
 
         for (int i = 0; i < n; i++) {
-            temp = 2 * i + 1;
-            System.out.println(temp);
-            sum += temp;
+            oddNumber = 2 * i + 1;
+            System.out.println(oddNumber);
+            sum += oddNumber;
         }
         System.out.println("Sum: " + sum);
     }
