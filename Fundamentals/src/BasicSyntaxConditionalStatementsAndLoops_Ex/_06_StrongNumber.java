@@ -19,9 +19,7 @@ public class _06_StrongNumber {
             }
             sum += fact;
             fact = 1;
-            if (input > 0) {
-                input = input / 10;
-            }
+            input = input / 10;
         }
         if (sum == number) {
             System.out.println("yes");
