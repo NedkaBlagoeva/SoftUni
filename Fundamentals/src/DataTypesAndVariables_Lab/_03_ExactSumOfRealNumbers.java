@@ -9,10 +9,8 @@ public class _03_ExactSumOfRealNumbers {
         int n = Integer.parseInt(scan.nextLine());
         BigDecimal sum = BigDecimal.ZERO;
         for (int i = 1; i <= n; i++) {
-            String input = scan.nextLine();
-            BigDecimal number = new BigDecimal(input);
+            BigDecimal number = new BigDecimal(scan.nextLine());
             sum = number.add(sum);
-
         }
         System.out.println(sum);
     }
