@@ -21,7 +21,7 @@ public class _09_PadawanEquipment {
         if (ivanChoMoney >= sum) {
             System.out.printf("The money is enough - it would cost %.2flv.", sum);
         } else {
-            System.out.printf("Ivan Cho will need %.2flv more.", sum - ivanChoMoney);
+            System.out.printf("George Lucas will need %.2flv more.", sum - ivanChoMoney);
         }
 
 
