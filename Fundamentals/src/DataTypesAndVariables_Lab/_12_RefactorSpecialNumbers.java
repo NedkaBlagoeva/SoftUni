@@ -5,21 +5,24 @@ import java.util.Scanner;
 public class _12_RefactorSpecialNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int kolkko = Integer.parseInt(scanner.nextLine());
-        int obshto = 0;
-        int takova = 0;
-        boolean toe = false;
-        for (int ch = 1; ch <= kolkko; ch++) {
-            takova = ch;
-            while (ch > 0) {
-                obshto += ch % 10;
-                ch = ch / 10;
-            }
-            toe = (obshto == 5) || (obshto == 7) || (obshto == 11);
-            System.out.printf("%d -> %b%n", takova, toe);
-            obshto = 0;
-            ch = takova;
-        }
+        int n = Integer.parseInt(scanner.nextLine());
+        int sum = 0;
 
+        for (int currentNum = 1; currentNum <= n; currentNum++) {
+            int number = currentNum;
+            while (currentNum > 0) {
+                sum += currentNum % 10;
+                currentNum = currentNum / 10;
+            }
+            boolean isSpecial = false;
+            isSpecial = (sum == 5) || (sum == 7) || (sum == 11);
+            if (isSpecial) {
+                System.out.printf("%d -> True%n", number);
+            } else {
+                System.out.printf("%d -> False%n", number);
+            }
+            sum = 0;
+            currentNum = number;
+        }
     }
 }
