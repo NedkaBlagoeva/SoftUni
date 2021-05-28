@@ -9,8 +9,8 @@ public class _05_PrintPartOfASCIITable {
         int end = Integer.parseInt(scan.nextLine());
         int sum = 0;
 
-        for (int code = start; code <= end ; code++) {
-           char symbol = (char) code;
+        for (int asciiCode = start; asciiCode <= end ; asciiCode++) {
+           char symbol = (char) asciiCode;
             System.out.print(symbol + " ");
         }
     }
