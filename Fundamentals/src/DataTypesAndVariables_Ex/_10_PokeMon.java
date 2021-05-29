@@ -15,7 +15,9 @@ public class _10_PokeMon {
             pokePowerN -= distanceM;
             count++;
             if (pokePowerN == startPower / 2) {
-                pokePowerN /= exhaustionFactorY;
+                if (exhaustionFactorY != 0){
+                    pokePowerN /= exhaustionFactorY;
+                }
             }
         }
         System.out.println(pokePowerN);
