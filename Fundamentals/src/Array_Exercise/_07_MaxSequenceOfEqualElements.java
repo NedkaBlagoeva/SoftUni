@@ -11,7 +11,7 @@ public class _07_MaxSequenceOfEqualElements {
         int count = 1;
         int countMax = 0;
         int element = 0;
-        for (int i = 0; i < input.length - 1; i++) {
+        for (int i = 0; i < input.length-1; i++) {
             if (input[i] == input[i + 1]) {
                 count++;
                 if (count > countMax) {
