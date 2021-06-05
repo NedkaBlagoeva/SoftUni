@@ -17,7 +17,7 @@ public class _02_CommonElements {
 
         for (int i = 0; i < array2.length; i++) {
             for (int j = 0; j < array1.length; j++) {
-                if (array2 [i].equals(array1[j])){
+                if (array2[i].equals(array1[j])) {
                     System.out.print(array1[j] + " ");
                 }
             }
