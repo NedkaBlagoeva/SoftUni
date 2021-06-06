@@ -10,8 +10,8 @@ public class _08_MagicSum {
         int magicNumber = Integer.parseInt(scan.nextLine());
 
         for (int i = 0; i < numbers.length; i++) {
-            for (int j = 0; j < numbers.length; j++) {
-                if ((numbers[i] + numbers[j]) == magicNumber){
+            for (int j = i + 1; j < numbers.length; j++) {
+                if ((numbers[i] + numbers[j]) == magicNumber) {
                     System.out.println(numbers[i] + " " + numbers[j]);
                 }
             }
