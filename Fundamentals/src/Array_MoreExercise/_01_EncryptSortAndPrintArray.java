@@ -19,16 +19,11 @@ public class _01_EncryptSortAndPrintArray {
         for (String input : inputs) {
             for (int i = 0; i < input.length(); i++) {
                 switch (input.charAt(i)) {
-                    case 'a':
-                    case 'A':
-                    case 'e':
-                    case 'E':
-                    case 'i':
-                    case 'I':
-                    case 'o':
-                    case 'O':
-                    case 'u':
-                    case 'U':
+                    case 'a': case 'A':
+                    case 'e': case 'E':
+                    case 'i': case 'I':
+                    case 'o': case 'O':
+                    case 'u': case 'U':
                         sum += (int) input.charAt(i) * input.length();
                         break;
                     default:
