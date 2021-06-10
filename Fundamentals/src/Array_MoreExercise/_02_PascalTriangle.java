@@ -6,22 +6,28 @@ public class _02_PascalTriangle {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = Integer.parseInt(scan.nextLine());
-        int[] startArray = new int[n];
-        startArray[0] = 1;
-        System.out.println(startArray[0]);
-        int[] modifiedArray = new int[n];
-        for (int row = 2; row <= n; row++) {
-            for (int element = 1; element < n-1; element++) {
-                modifiedArray[0] = startArray[0];
-                modifiedArray[element] = startArray[element] + startArray[element-1];
-            }
-            startArray = modifiedArray;
-            for (int i : modifiedArray) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
+        printPascal(n);
+    }
 
+    public static void printPascal(int n) {
+        // An auxiliary array to store generated pascal triangle values
+        int[][] arr = new int[n][n];
+
+        // Iterate through every line and print integer(s) in it
+        for (int line = 0; line < n; line++) {
+            // Every line has number of integers equal to line number
+            for (int i = 0; i <= line; i++) {
+                // First and last values in every row are 1
+                if (line == i || i == 0) {
+                    arr[line][i] = 1;
+                } else {
+                    // Other values are sum of values just above and left of above
+                    arr[line][i] = arr[line - 1][i - 1] + arr[line - 1][i];
+                }
+                System.out.print(arr[line][i] + " ");
+            }
+            System.out.println("");
         }
-
     }
 }
+
