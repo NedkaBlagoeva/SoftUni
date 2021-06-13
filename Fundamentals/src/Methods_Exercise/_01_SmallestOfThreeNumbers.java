@@ -13,6 +13,6 @@ public class _01_SmallestOfThreeNumbers {
     }
 
     private static void minNumber(int num1, int num2, int num3) {
-        System.out.println(Math.min(num1,Math.min(num2, num3)));
+        System.out.println(Math.min(num1, Math.min(num2, num3)));
     }
 }
