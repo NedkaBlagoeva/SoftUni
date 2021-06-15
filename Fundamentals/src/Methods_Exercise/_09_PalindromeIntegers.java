@@ -8,16 +8,16 @@ public class _09_PalindromeIntegers {
         String input = scan.nextLine();
 
         while (!input.equals("END")) {
-            System.out.println(printFactorialCheck(input));
+            System.out.println(printPalindromeCheck(input));
             input = scan.nextLine();
         }
     }
 
-    private static boolean printFactorialCheck(String input) {
-        String inputBacwards = "";
+    private static boolean printPalindromeCheck(String input) {
+        String inputBackwards = "";
         for (int i = input.length() - 1; i >= 0; i--) {
-            inputBacwards += input.charAt(i);
+            inputBackwards += input.charAt(i);
         }
-        return input.compareTo(inputBacwards) == 0;
+        return input.compareTo(inputBackwards) == 0;
     }
 }
