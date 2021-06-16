@@ -2,6 +2,7 @@ package Methods_Exercise;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class _11_ArrayManipulator {
     public static void main(String[] args) {
@@ -12,32 +13,32 @@ public class _11_ArrayManipulator {
             String[] commandArr = command.split(" ");
             switch (commandArr[0]) {
                 case "exchange":
-                    inputArr = exchange(inputArr, commandArr[1]);
+                    exchange(inputArr, commandArr[1]);
                     break;
                 case "max":
                     if (commandArr[1].equals("odd")) {
-                        maxOdd(inputArr);
+                       // maxOdd(inputArr);
                     } else if (commandArr[1].equals("even")) {
-                        maxEven(inputArr);
+                       // maxEven(inputArr);
                     }
                     break;
                 case "min":
                     if (commandArr[1].equals("odd")) {
-                        minOdd(inputArr);
+                      //  minOdd(inputArr);
                     } else if (commandArr[1].equals("even")) {
-                        minEven(inputArr);
+                       // minEven(inputArr);
                     }
                     break;
                 case "first":
                     if (commandArr[1].equals("odd")) {
-                        firstOdd(inputArr);
+                       // firstOdd(inputArr);
                     } else if (commandArr[1].equals("even")) {
-                        firstEven(inputArr);
+                        //firstEven(inputArr);
                     }
                     break;
                 case "last":
                     if (commandArr[2].equals("odd")) {
-                        lastOdd(inputArr);
+                        //lastOdd(inputArr);
                     } else if (commandArr[2].equals("even")) {
                         lastEven(inputArr);
                     }
@@ -47,10 +48,25 @@ public class _11_ArrayManipulator {
         }
     }
 
-    private static int[] exchange(int[] inputArr, String index) {
+    private static void exchange(int[] inputArr, String index) {
+        int arrIndex = Integer.parseInt(index);
+        int []arrToIndex = new int[arrIndex + 1];
+        int []arrAfterIndex = new int[inputArr.length - arrIndex - 1];
+        for (int i = 0; i < arrIndex + 1; i++) {
+            arrToIndex [i] = inputArr[i];
+        }
+        for (int item : arrToIndex) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+        for (int i = arrIndex + 1; i < inputArr.length; i++) {
+            arrAfterIndex [i - arrIndex - 1] = inputArr[i];
+        }
+        for (int item : arrAfterIndex) {
+            System.out.print(item + " ");
+        }
+        int [] exchangedArr = new int[inputArr.length];
 
-
-        return new int[0];
     }
 
     private static void lastEven(int[] inputArr) {
