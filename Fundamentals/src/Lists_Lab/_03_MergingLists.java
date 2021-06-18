@@ -15,11 +15,16 @@ public class _03_MergingLists {
                 .map(Integer::parseInt).collect(Collectors.toList());
 
         int minListSize = Math.min(list1.size(), list2.size());
-        for (int i = 0; i < minListSize ; i++) {
-            System.out.println(list1.get(i) + " " + list2.get(i) + " ");
+        for (int i = 0; i < minListSize; i++) {
+            System.out.print(list1.get(i) + " " + list2.get(i) + " ");
         }
+        printList(list1, minListSize);
+        printList(list2, minListSize);
     }
-    private static void printList (List<Integer>, int beginIndex){
-        
+
+    private static void printList(List<Integer> list, int beginIndex) {
+        for (int i = beginIndex; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
     }
 }
