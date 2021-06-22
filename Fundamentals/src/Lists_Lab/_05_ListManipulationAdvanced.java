@@ -70,6 +70,8 @@ public class _05_ListManipulationAdvanced {
                 }
                 System.out.println();
                 break;
+            default:
+                break;
         }
     }
 
