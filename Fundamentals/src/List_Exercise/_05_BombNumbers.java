@@ -15,7 +15,7 @@ public class _05_BombNumbers {
         int bomb = bombAndPower[0];
         int power = bombAndPower[1];
         int bombIndex = 0;
-     //върти, докато има бомба
+        //върти, докато има бомба
         while (numbers.contains(bomb)) {
             //намираме бомбата
             for (int i = 0; i < numbers.size(); i++) {
