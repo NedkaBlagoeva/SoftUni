@@ -6,14 +6,14 @@ public class Vehicle {
     private String color;
     private int hp;
 
-    public Vehicle (String type, String model, String color,int hp){
+    public Vehicle(String type, String model, String color, int hp) {
         this.type = type;
         this.model = model;
         this.color = color;
         this.hp = hp;
     }
 
-    public String getType(){
+    public String getType() {
         return type;
     }
 
@@ -27,9 +27,11 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return  String.format("Type: %s%n" +
+
+        String typeUpper = this.type.substring(0, 1).toUpperCase() + this.type.substring(1);
+        return String.format("Type: %s%n" +
                 "Model: %s%n" +
                 "Color: %s%n" +
-                "Horsepower: %d", type, model, color,hp);
+                "Horsepower: %d", typeUpper, this.model, this.color, this.hp);
     }
 }
