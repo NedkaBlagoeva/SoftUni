@@ -47,7 +47,17 @@ public class Main {
                     break;
             }
         }
-        System.out.printf("Cars have average horsepower of: %.2f.%n", sumCarHp * 1.0 / countCars);
-        System.out.printf("Trucks have average horsepower of: %.2f.", sumTruckHp * 1.0 / countTruck);
+        if (countCars == 0) {
+            System.out.println("Cars have average horsepower of: 0.00.");
+        } else {
+            double avgCarHp = sumCarHp * 1.0 / countCars;
+            System.out.printf("Cars have average horsepower of: %.2f.%n", avgCarHp);
+        }
+        if (countTruck == 0) {
+            System.out.println("Trucks have average horsepower of: 0.00.");
+        } else {
+            double avgTruckHp = sumTruckHp * 1.0 / countTruck;
+            System.out.printf("Trucks have average horsepower of: %.2f.", avgTruckHp);
+        }
     }
 }
