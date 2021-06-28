@@ -11,7 +11,19 @@ public class Articles {
         this.author = author;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
     public String toString() {
-        return this.title + " -" + this.content + ":" + this.author;
+        return this.title + " - " + this.content + ": " + this.author;
     }
 }
