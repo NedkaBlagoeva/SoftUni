@@ -1,5 +1,6 @@
 package _01_FundamentalsMidExamRetake;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class _01_ComputerStore {
@@ -22,26 +23,31 @@ public class _01_ComputerStore {
 
             if (partPrice <= 0) {
                 System.out.println("Invalid price!");
-            }else{
+            } else {
                 totalPrice += partPrice;
             }
-
             input = scan.nextLine();
         }
+        double taxes = totalPrice * 0.2;
+        double finalPrice = totalPrice * 1.2;
+        if (isSpecial) {
+            finalPrice = totalPrice * 1.2 * 0.9;
+        }
+
         if (totalPrice == 0) {
             System.out.println("Invalid order!");
-        } else if (isRegular) {
-            System.out.printf("Congratulations you've just bought a new computer!\n" +
-                    "Price without taxes: %.2f$\n" +
-                    "Taxes: %.2f$\n" +
-                    "-----------\n" +
-                    "Total price: %.2f$\n", totalPrice, totalPrice * 0.2, totalPrice * 1.2);
-        } else if (isSpecial) {
-            System.out.printf("Congratulations you've just bought a new computer!\n" +
-                    "Price without taxes: %.2f$\n" +
-                    "Taxes: %.2f$\n" +
-                    "-----------\n" +
-                    "Total price: %.2f$\n", totalPrice, totalPrice * 0.2, totalPrice * 1.2 * 0.9);
+            return;
         }
+        printReceipt(totalPrice, taxes, finalPrice);
+
     }
+
+    private static void printReceipt(double totalPrice, double taxes, double finalPrice) {
+        System.out.printf("Congratulations you've just bought a new computer!\n" +
+                "Price without taxes: %.2f$\n" +
+                "Taxes: %.2f$\n" +
+                "-----------\n" +
+                "Total price: %.2f$\n", totalPrice, taxes, finalPrice);
+    }
+
 }
