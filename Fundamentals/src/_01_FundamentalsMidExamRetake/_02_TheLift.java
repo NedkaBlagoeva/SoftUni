@@ -19,6 +19,7 @@ public class _02_TheLift {
                 } else {
                     wagons[i] = wagons[i] + peopleToWait;
                     peopleToWait = 0;
+                    break;
                 }
             }
         }
@@ -35,14 +36,11 @@ public class _02_TheLift {
             }
         } else if (peopleToWait == 0) {
             System.out.println("The lift has empty spots!");
-            for (int wagon : wagons) {
-                System.out.print(wagon + " ");
-            }
         } else if (peopleToWait > 0) {
             System.out.printf("There isn't enough space! %d people in a queue!\n", peopleToWait);
-            for (int wagon : wagons) {
-                System.out.print(wagon + " ");
-            }
+        }
+        for (int wagon : wagons) {
+            System.out.print(wagon + " ");
         }
     }
 }
