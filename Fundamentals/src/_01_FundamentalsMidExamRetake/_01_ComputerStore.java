@@ -1,18 +1,15 @@
 package _01_FundamentalsMidExamRetake;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class _01_ComputerStore {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
-        boolean isRegular = false;
         boolean isSpecial = false;
         double totalPrice = 0;
         while (true) {
             if ("regular".equals(input)) {
-                isRegular = true;
                 break;
             }
             if ("special".equals(input)) {
@@ -20,7 +17,6 @@ public class _01_ComputerStore {
                 break;
             }
             double partPrice = Double.parseDouble(input);
-
             if (partPrice <= 0) {
                 System.out.println("Invalid price!");
             } else {
@@ -39,7 +35,6 @@ public class _01_ComputerStore {
             return;
         }
         printReceipt(totalPrice, taxes, finalPrice);
-
     }
 
     private static void printReceipt(double totalPrice, double taxes, double finalPrice) {
