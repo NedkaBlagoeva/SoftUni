@@ -17,8 +17,9 @@ public class Main {
         }
         students.sort(Comparator.comparing(Student :: getGrade));
         Collections.reverse(students);
-        for (Student student : students) {
-            System.out.println(student);
-        }
+        students.forEach(System.out::println);
+//        for (Student student : students) {
+//            System.out.println(student);
+//        }
     }
 }
