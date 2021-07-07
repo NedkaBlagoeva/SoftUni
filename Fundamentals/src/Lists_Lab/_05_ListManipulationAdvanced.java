@@ -52,7 +52,6 @@ public class _05_ListManipulationAdvanced {
     }
 
     private static void printEvenOrOdd(List<Integer> numbers, String command) {
-
         switch (command) {
             case "even":
                 for (Integer number : numbers) {
