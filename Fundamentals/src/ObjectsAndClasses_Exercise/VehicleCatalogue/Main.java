@@ -54,7 +54,8 @@ public class Main {
             System.out.printf("Cars have average horsepower of: %.2f.%n", avgCarHp);
         }
         if (countTruck == 0) {
-            System.out.println("Trucks have average horsepower of: 0.00.");
+            System.out.println("" +
+                    "Trucks have average horsepower of: 0.00.");
         } else {
             double avgTruckHp = sumTruckHp * 1.0 / countTruck;
             System.out.printf("Trucks have average horsepower of: %.2f.", avgTruckHp);
