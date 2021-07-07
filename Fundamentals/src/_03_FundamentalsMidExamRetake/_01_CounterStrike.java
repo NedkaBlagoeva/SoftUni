@@ -9,9 +9,6 @@ public class _01_CounterStrike {
         String input = scan.nextLine();
         int wins = 0;
         while (!"End of battle".equals(input)){
-//            if (energy == 0){
-//                break;
-//            }
             int distance = Integer.parseInt(input);
             if (energy >= distance){
                 energy -= distance;
