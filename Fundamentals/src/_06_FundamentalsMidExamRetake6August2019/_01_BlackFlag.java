@@ -12,7 +12,7 @@ public class _01_BlackFlag {
         for (int i = 1; i <= days; i++) {
             collectedPlunder += plunderForDay;
             if (i % 3 == 0) {
-                collectedPlunder += plunderForDay * 1.0 / 2;
+                collectedPlunder += plunderForDay / 2.0;
             } else if (i % 5 == 0) {
                 collectedPlunder *= 0.7;
             }
