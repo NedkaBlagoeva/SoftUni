@@ -13,7 +13,8 @@ public class _01_BlackFlag {
             collectedPlunder += plunderForDay;
             if (i % 3 == 0) {
                 collectedPlunder += plunderForDay / 2.0;
-            } else if (i % 5 == 0) {
+            }
+            if (i % 5 == 0) {
                 collectedPlunder *= 0.7;
             }
         }
