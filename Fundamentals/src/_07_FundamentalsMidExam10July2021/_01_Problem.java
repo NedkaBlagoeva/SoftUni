@@ -20,7 +20,6 @@ public class _01_Problem {
                 break;
             }
             if (i % 2 == 0) {
-                // 5% hay i 95%food
                 if (quantityHay >=  quantityFood * 5 / 100) {
                     quantityHay -= quantityFood * 5 / 100;
                 } else {
