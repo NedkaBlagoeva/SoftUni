@@ -11,7 +11,7 @@ public class _03_LegendaryFarming {
         keyMaterials.put("shards", 0);
         keyMaterials.put("fragments", 0);
         keyMaterials.put("motes", 0);
-        do {
+        while (!weHaveWinner) {
             String[] input = scan.nextLine().toLowerCase().split("\\s+");
             for (int i = 0; i < input.length; i++) {
                 if (weHaveWinner){
@@ -39,14 +39,13 @@ public class _03_LegendaryFarming {
 
                 }
             }
-        } while (!weHaveWinner);
+        }
         keyMaterials
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed().thenComparing(Map.Entry.comparingByKey()))
                 .forEach(result -> System.out.printf("%s: %d%n", result.getKey(), result.getValue()));
-        junkMaterials.entrySet()
-                .forEach(e -> System.out.printf("%s: %d%n", e.getKey(), e.getValue()));
+        junkMaterials.forEach((key, value) -> System.out.printf("%s: %d%n", key, value));
 
     }
 
