@@ -7,7 +7,7 @@ public class _03_Substring {
         Scanner scan = new Scanner(System.in);
         String textToRemove = scan.nextLine();
         String text = scan.nextLine();
-        while (text.contains(textToRemove)){
+        while (text.contains(textToRemove)) {
             text = text.replace(textToRemove, "");
         }
 
