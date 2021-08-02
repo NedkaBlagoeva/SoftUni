@@ -10,7 +10,7 @@ public class _02_AsciiSumator {
         String text = scan.nextLine();
         int sum = 0;
         for (int i = 0; i < text.length(); i++) {
-            if (text.charAt(i) >= startChar && text.charAt(i) <= endChar) {
+            if (text.charAt(i) > startChar && text.charAt(i) < endChar) {
                 sum += text.charAt(i);
             }
         }
