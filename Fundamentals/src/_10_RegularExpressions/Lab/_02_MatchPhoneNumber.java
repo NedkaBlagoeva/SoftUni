@@ -13,9 +13,9 @@ public class _02_MatchPhoneNumber {
         String regex = "\\+359([ -])2\\1\\d{3}\\1\\d{4}\\b";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
-        List <String> matchedPhones = new ArrayList<>();
-        
-        while (matcher.find()){
+        List<String> matchedPhones = new ArrayList<>();
+
+        while (matcher.find()) {
             matchedPhones.add(matcher.group());
         }
         System.out.print(String.join(", ", matchedPhones));
