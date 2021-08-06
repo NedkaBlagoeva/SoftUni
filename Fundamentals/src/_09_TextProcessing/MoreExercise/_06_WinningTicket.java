@@ -17,18 +17,16 @@ public class _06_WinningTicket {
                     System.out.printf("ticket \"%s\" - no match%n", ticket);
                     continue;
                 }
-                if (maxSequence(firstHalf).length() < 6 || maxSequence(secondHalf).length() < 6){
+                if (maxSequence(firstHalf).length() < 6 || maxSequence(secondHalf).length() < 6) {
                     System.out.printf("ticket \"%s\" - no match%n", ticket);
                     continue;
                 }
                 if (maxSequence(firstHalf).equals(maxSequence(secondHalf))) {
                     String winningSequence = maxSequence(firstHalf);
-                    if (winningSequence.contains("$") || winningSequence.contains("@") || winningSequence.contains("#") || winningSequence.contains("^")) {
-                        if (winningSequence.length() >= 6 && winningSequence.length() <= 9) {
-                            System.out.printf("ticket \"%s\" - %d%c%n", ticket, winningSequence.length(), winningSequence.charAt(0));
-                        } else if (winningSequence.length() == 10) {
-                            System.out.printf("ticket \"%s\" - %d%c Jackpot!%n", ticket, 10, winningSequence.charAt(0));
-                        }
+                    if (winningSequence.length() >= 6 && winningSequence.length() <= 9) {
+                        System.out.printf("ticket \"%s\" - %d%c%n", ticket, winningSequence.length(), winningSequence.charAt(0));
+                    } else if (winningSequence.length() == 10) {
+                        System.out.printf("ticket \"%s\" - %d%c Jackpot!%n", ticket, 10, winningSequence.charAt(0));
                     }
                 }
             }
@@ -42,7 +40,9 @@ public class _06_WinningTicket {
         char maxSymbol = ' ';
         for (int i = 0; i < symbols.length - 1; i++) {
             if (symbols[i] == symbols[i + 1]) {
-                count++;
+                if (symbols[i] == '$' || symbols[i] == '@' || symbols[i] == '^' || symbols[i] == '#') {
+                    count++;
+                }
             } else {
                 count = 1;
             }
