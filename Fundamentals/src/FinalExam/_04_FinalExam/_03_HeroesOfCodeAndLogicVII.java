@@ -28,9 +28,9 @@ public class _03_HeroesOfCodeAndLogicVII {
                     String spellName = tokens[3];
                     for (Hero hero : heroes) {
                         if (hero.getName().equals(heroName)) {
-                            if (hero.getMP() >= neededMP) {
-                                hero.setMP(hero.getMP() - neededMP);
-                                System.out.printf("%s has successfully cast %s and now has %d MP!%n", heroName, spellName, hero.getMP());
+                            if (hero.getMp() >= neededMP) {
+                                hero.setMp(hero.getMp() - neededMP);
+                                System.out.printf("%s has successfully cast %s and now has %d MP!%n", heroName, spellName, hero.getMp());
                             } else {
                                 System.out.printf("%s does not have enough MP to cast %s!%n", heroName, spellName);
                             }
@@ -42,9 +42,9 @@ public class _03_HeroesOfCodeAndLogicVII {
                     String attacker = tokens[3];
                     for (Hero hero : heroes) {
                         if (hero.getName().equals(heroName)) {
-                            hero.setHP(hero.getHP() - damage);
-                            if (hero.getHP() > 0) {
-                                System.out.printf("%s was hit for %d HP by %s and now has %d HP left!%n", heroName, damage, attacker, hero.getHP());
+                            hero.setHp(hero.getHp() - damage);
+                            if (hero.getHp() > 0) {
+                                System.out.printf("%s was hit for %d HP by %s and now has %d HP left!%n", heroName, damage, attacker, hero.getHp());
                             } else {
                                 System.out.printf("%s has been killed by %s!%n", heroName, attacker);
                             }
@@ -55,11 +55,11 @@ public class _03_HeroesOfCodeAndLogicVII {
                     int amount = Integer.parseInt(tokens[2]);
                     for (Hero hero : heroes) {
                         if (hero.getName().equals(heroName)) {
-                            if (hero.getMP() + amount > 200) {
-                                System.out.printf("%s recharged for %d MP!%n", heroName, 200 - hero.getMP());
-                                hero.setMP(200);
+                            if (hero.getMp() + amount > 200) {
+                                System.out.printf("%s recharged for %d MP!%n", heroName, 200 - hero.getMp());
+                                hero.setMp(200);
                             } else {
-                                hero.setMP(hero.getMP() + amount);
+                                hero.setMp(hero.getMp() + amount);
                                 System.out.printf("%s recharged for %d MP!%n", heroName, amount);
                             }
                         }
@@ -69,11 +69,11 @@ public class _03_HeroesOfCodeAndLogicVII {
                     int amount2 = Integer.parseInt(tokens[2]);
                     for (Hero hero : heroes) {
                         if (hero.getName().equals(heroName)) {
-                            if (hero.getHP() + amount2 >= 100) {
-                                System.out.printf("%s healed for %d HP!%n", heroName, 100 - hero.getHP());
-                                hero.setHP(100);
+                            if (hero.getHp() + amount2 >= 100) {
+                                System.out.printf("%s healed for %d HP!%n", heroName, 100 - hero.getHp());
+                                hero.setHp(100);
                             } else {
-                                hero.setHP(hero.getHP() + amount2);
+                                hero.setHp(hero.getHp() + amount2);
                                 System.out.printf("%s healed for %d HP!%n", heroName, amount2);
                             }
                         }
@@ -85,13 +85,13 @@ public class _03_HeroesOfCodeAndLogicVII {
         }
 //        heroes = heroes.stream()
 //                .filter(p -> p.getHP() > 0).sorted((a,b) -> b.getHP() - a.getHP()).collect(Collectors.toList());
-        heroes.stream().filter(p -> p.getHP() > 0).sorted((p1, p2) -> {
-            int result = Integer.compare(p2.getHP(), p1.getHP());
+        heroes.stream().filter(p -> p.getHp() > 0).sorted((p1, p2) -> {
+            int result = Integer.compare(p2.getHp(), p1.getHp());
             if (result == 0) {
                 result = p1.getName().compareTo(p2.getName());
             }
             return result;
-        }).forEach(p -> System.out.printf("%s%nHP: %d%nMP: %d%n", p.getName(), p.getHP(), p.getMP()));
+        }).forEach(p -> System.out.printf("%s%nHP: %d%nMP: %d%n", p.getName(), p.getHp(), p.getMp()));
 
 
 //        for (Hero hero : heroes) {
@@ -104,37 +104,37 @@ public class _03_HeroesOfCodeAndLogicVII {
 
     private static class Hero {
         private String name;
-        private int HP;
-        private int MP;
+        private int hp;
+        private int mp;
 
-        public Hero(String name, int HP, int MP) {
+        public Hero(String name, int hp, int mp) {
             this.name = name;
-            this.HP = HP;
-            this.MP = MP;
+            this.hp = hp;
+            this.mp = mp;
         }
 
         public String getName() {
             return name;
         }
 
-        public int getHP() {
-            return HP;
+        public int getHp() {
+            return hp;
         }
 
-        public int getMP() {
-            return MP;
+        public int getMp() {
+            return mp;
         }
 
         public void setName(String name) {
             this.name = name;
         }
 
-        public void setHP(int HP) {
-            this.HP = HP;
+        public void setHp(int hp) {
+            this.hp = hp;
         }
 
-        public void setMP(int MP) {
-            this.MP = MP;
+        public void setMp(int mp) {
+            this.mp = mp;
         }
     }
 }
