@@ -18,15 +18,15 @@ public class _03_ThePianist {
             pianoPieces.put(piece, new PianoPiecesData(composer, key));
         }
         String input = scan.nextLine();
-        while (!"Stop".equals(input)){
-            String [] commands = input.split("\\|");
+        while (!"Stop".equals(input)) {
+            String[] commands = input.split("\\|");
             String command = commands[0];
             String piece = commands[1];
-            switch (command){
+            switch (command) {
                 case "Add":
                     String composer = commands[2];
                     String key = commands[3];
-                    if (pianoPieces.containsKey(piece)){
+                    if (pianoPieces.containsKey(piece)) {
                         System.out.printf("%s is already in the collection!%n", piece);
                     } else {
                         pianoPieces.put(piece, new PianoPiecesData(composer, key));
@@ -34,7 +34,7 @@ public class _03_ThePianist {
                     }
                     break;
                 case "Remove":
-                    if (pianoPieces.containsKey(piece)){
+                    if (pianoPieces.containsKey(piece)) {
                         pianoPieces.remove(piece);
                         System.out.printf("Successfully removed %s!%n", piece);
                     } else {
@@ -43,9 +43,7 @@ public class _03_ThePianist {
                     break;
                 case "ChangeKey":
                     String newKey = commands[2];
-                    if (pianoPieces.containsKey(piece)){
-//                        pianoPieces.put(newKey, pianoPieces.get(piece));
-//                        pianoPieces.remove(piece);
+                    if (pianoPieces.containsKey(piece)) {
                         pianoPieces.get(piece).setKey(newKey);
                         System.out.printf("Changed the key of %s to %s!%n", piece, newKey);
                     } else {
@@ -57,11 +55,11 @@ public class _03_ThePianist {
         }
         pianoPieces.entrySet().stream()
                 .sorted(Comparator.comparing((Function<Map.Entry<String, PianoPiecesData>, String>) Map.Entry::getKey).thenComparing(p -> p.getValue().getComposer())).
-                forEach(e -> System.out.printf("%s -> Composer: %s, Key: %s%n", e.getKey(), e.getValue().getComposer(),e.getValue().getKey()));
+                forEach(e -> System.out.printf("%s -> Composer: %s, Key: %s%n", e.getKey(), e.getValue().getComposer(), e.getValue().getKey()));
     }
 
     private static class PianoPiecesData {
-        private String composer;
+        private final String composer;
         private String key;
 
         public PianoPiecesData(String composer, String key) {
@@ -69,7 +67,7 @@ public class _03_ThePianist {
             this.key = key;
         }
 
-        public void setKey(String key){
+        public void setKey(String key) {
             this.key = key;
         }
 
