@@ -8,7 +8,7 @@ public class _02_FancyBarcodes {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = Integer.parseInt(scan.nextLine());
-        String regex = "#+[A-Z][A-Za-z0-9]{4,}[A-Z]@#+";
+        String regex = "@#+[A-Z][A-Za-z0-9]{4,}[A-Z]@#+";
         Pattern pattern = Pattern.compile(regex);
         for (int i = 0; i < n; i++) {
             String barcode = scan.nextLine();
