@@ -1,4 +1,4 @@
-package FinalExam._02_FinalExam;
+package src.FinalExam._02_FinalExam;
 
 import java.util.*;
 
