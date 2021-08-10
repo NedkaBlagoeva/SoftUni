@@ -53,7 +53,7 @@ public class _03_PlantDiscovery {
                 .forEach(p -> System.out.printf("- %s; Rarity: %s; Rating: %.2f%n",
                         p.getKey(),
                         p.getValue().getRarity(),
-                        p.getValue().getAverageRating())); mmm;
+                        p.getValue().getAverageRating()));
     }
 }
 
