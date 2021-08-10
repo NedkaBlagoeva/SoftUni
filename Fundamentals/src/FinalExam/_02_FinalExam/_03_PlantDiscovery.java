@@ -58,8 +58,8 @@ public class _03_PlantDiscovery {
 }
 
 class PlansData {
-    int rarity;
-    List<Integer> ratings;
+    private int rarity;
+    private List<Integer> ratings;
 
     public PlansData(List<Integer> ratings, int rarity) {
         this.rarity = rarity;
