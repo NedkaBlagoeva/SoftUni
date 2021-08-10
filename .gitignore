@@ -1,2 +1,6 @@
-SoftUni\Fundamentals\.idea
-SoftUni\Fundamentals\out
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
