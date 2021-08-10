@@ -24,7 +24,7 @@ public class _03_PlantDiscovery {
                 case "Rate":
                     //Rate: {plant} - {rating} – add the given rating to the plant (store all ratings)
                     int rating = Integer.parseInt(commandParts[2]);
-                    plants.get(plantName).getRatings().add(rating);
+                    plants.get(plantName).addRating(rating);
                     break;
                 case "Update":
                     //Update: {plant} - {new_rarity} – update the rarity of the plant with the new one
@@ -33,7 +33,7 @@ public class _03_PlantDiscovery {
                     break;
                 case "Reset":
                     //Reset: {plant} – remove all the ratings of the given plant
-                    plants.get(plantName).getRatings().clear();
+                    plants.get(plantName).removeAllRating();
                     break;
             }
             input = scan.nextLine();
@@ -70,17 +70,17 @@ class PlansData {
         return rarity;
     }
 
-    public List<Integer> getRatings() {
-        return ratings;
-    }
-
     public void setRarity(int rarity) {
         this.rarity = rarity;
     }
 
-//    public void addRating(int rating) {
-//        ratings.add(rating);
-//    }
+    public void addRating(int rating) {
+        ratings.add(rating);
+    }
+
+    public void removeAllRating() {
+        this.ratings.clear();
+    }
 
     public double getAverageRating() {
         double sumOfRatings = 0.0;

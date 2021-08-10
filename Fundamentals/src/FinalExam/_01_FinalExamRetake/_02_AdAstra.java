@@ -1,4 +1,4 @@
-package FinalExam._01_FinalExamRetake;
+package _FinalExam._01_FinalExamRetake;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
