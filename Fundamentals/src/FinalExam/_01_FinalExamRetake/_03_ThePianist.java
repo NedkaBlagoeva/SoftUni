@@ -54,8 +54,8 @@ public class _03_ThePianist {
             input = scan.nextLine();
         }
         pianoPieces.entrySet().stream()
-                .sorted(Comparator.comparing((Function<Map.Entry<String, PianoPiecesData>, String>) Map.Entry::getKey).thenComparing(p -> p.getValue().getComposer())).
-                forEach(e -> System.out.printf("%s -> Composer: %s, Key: %s%n", e.getKey(), e.getValue().getComposer(), e.getValue().getKey()));
+                .sorted(Comparator.comparing((Function<Map.Entry<String, PianoPiecesData>, String>) Map.Entry::getKey).thenComparing(p -> p.getValue().getComposer()))
+                .forEach(e -> System.out.printf("%s -> Composer: %s, Key: %s%n", e.getKey(), e.getValue().getComposer(), e.getValue().getKey()));
     }
 
     private static class PianoPiecesData {
@@ -78,7 +78,5 @@ public class _03_ThePianist {
         public String getKey() {
             return key;
         }
-
-
     }
 }
