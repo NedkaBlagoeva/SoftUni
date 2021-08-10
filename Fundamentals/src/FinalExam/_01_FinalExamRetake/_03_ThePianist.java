@@ -1,4 +1,4 @@
-package _FinalExam._01_FinalExamRetake;
+package FinalExam._01_FinalExamRetake;
 
 import java.util.*;
 import java.util.function.Function;
