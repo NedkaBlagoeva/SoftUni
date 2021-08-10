@@ -11,16 +11,15 @@ public class _03_PlantDiscovery {
             String[] plantsInfo = scan.nextLine().split("<->");
             String plantName = plantsInfo[0];
             int rarity = Integer.parseInt(plantsInfo[1]);
-            plants.put(plantName, new PlansData(rarity, new ArrayList<>()));
-            // plants.get(plantName).getRatings().add(0);
+            plants.put(plantName, new PlansData(new ArrayList<>(), rarity));
         }
 
         String input = scan.nextLine();
         while (!"Exhibition".equals(input)) {
-            input = input.replace(" ", "");
-            String[] commandParts = input.split("[:-]");
+            String[] commandParts = input.split(": | \\- ");
             String command = commandParts[0];
             String plantName = commandParts[1];
+
             switch (command) {
                 case "Rate":
                     //Rate: {plant} - {rating} – add the given rating to the plant (store all ratings)
@@ -35,9 +34,6 @@ public class _03_PlantDiscovery {
                 case "Reset":
                     //Reset: {plant} – remove all the ratings of the given plant
                     plants.get(plantName).getRatings().clear();
-                    break;
-                default:
-                    System.out.println("error");
                     break;
             }
             input = scan.nextLine();
@@ -65,7 +61,7 @@ class PlansData {
     int rarity;
     List<Integer> ratings;
 
-    public PlansData(int rarity, List<Integer> ratings) {
+    public PlansData(List<Integer> ratings, int rarity) {
         this.rarity = rarity;
         this.ratings = ratings;
     }
@@ -81,6 +77,10 @@ class PlansData {
     public void setRarity(int rarity) {
         this.rarity = rarity;
     }
+
+//    public void addRating(int rating) {
+//        ratings.add(rating);
+//    }
 
     public double getAverageRating() {
         double sumOfRatings = 0.0;
