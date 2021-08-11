@@ -36,6 +36,6 @@ public class _05_SoftUniParking {
                     break;
             }
         }
-        users.entrySet().forEach(e -> System.out.printf("%s => %s%n", e.getKey(), e.getValue()));
+        users.forEach((key, value) -> System.out.printf("%s => %s%n", key, value));
     }
 }
