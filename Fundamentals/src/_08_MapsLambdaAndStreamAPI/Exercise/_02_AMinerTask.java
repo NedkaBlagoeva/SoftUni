@@ -1,6 +1,5 @@
 package _08_MapsLambdaAndStreamAPI.Exercise;
 
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
