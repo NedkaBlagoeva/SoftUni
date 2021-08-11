@@ -1,9 +1,9 @@
 package _06_ObjectsAndClasses.Exercise.Articles2;
 
 public class Articles {
-    String title;
-    String content;
-    String author;
+    private String title;
+    private String content;
+    private String author;
 
     public Articles(String title, String content, String author) {
         this.title = title;
