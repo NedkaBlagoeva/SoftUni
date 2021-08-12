@@ -23,12 +23,13 @@ public class _01_SecretChat {
                 case "Reverse":
                     StringBuilder substring = new StringBuilder(tokens[1]);
                     if (message.contains(substring)) {
-                        StringBuilder toDelete = 
 //                        String temp1 = message.substring(0, message.indexOf(substring.toString()));
 //                        String temp2 = message.substring(message.indexOf(substring.toString()) + substring.length());
 //                        message = temp1 + temp2;
+
                        message = message.replaceFirst(Pattern.quote(substring.toString()),
                                 Matcher.quoteReplacement(""));
+                      // message = message.replaceFirst(substring.toString(), "");
                         message = message.concat(substring.reverse().toString());
                     } else {
                         System.out.println("error");
@@ -40,9 +41,10 @@ public class _01_SecretChat {
                     String newString = tokens[2];
                     if (message.contains(oldString)){
                         message = message.replace(oldString, newString);
+                        System.out.println(message);
                     }
 
-                    System.out.println(message);
+
                     break;
                 default:
                     break;
