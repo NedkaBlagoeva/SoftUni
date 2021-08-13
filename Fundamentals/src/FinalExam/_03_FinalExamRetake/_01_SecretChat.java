@@ -27,24 +27,22 @@ public class _01_SecretChat {
 //                        String temp2 = message.substring(message.indexOf(substring.toString()) + substring.length());
 //                        message = temp1 + temp2;
 
-                       message = message.replaceFirst(Pattern.quote(substring.toString()),
+                        message = message.replaceFirst(Pattern.quote(substring.toString()),
                                 Matcher.quoteReplacement(""));
-                      // message = message.replaceFirst(substring.toString(), "");
                         message = message.concat(substring.reverse().toString());
+                        System.out.println(message);
                     } else {
                         System.out.println("error");
                     }
-                    System.out.println(message);
+
                     break;
                 case "ChangeAll":
                     String oldString = tokens[1];
                     String newString = tokens[2];
-                    if (message.contains(oldString)){
+                    if (message.contains(oldString)) {
                         message = message.replace(oldString, newString);
                         System.out.println(message);
                     }
-
-
                     break;
                 default:
                     break;
