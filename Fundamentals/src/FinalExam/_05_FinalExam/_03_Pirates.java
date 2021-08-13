@@ -14,7 +14,7 @@ public class _03_Pirates {
             String townName = tokens[0];
             int population = Integer.parseInt(tokens[1]);
             int gold = Integer.parseInt(tokens[2]);
-            if (!towns.containsKey(townName)){
+            if (!towns.containsKey(townName)) {
                 towns.putIfAbsent(townName, new TownInfo(population, gold));
             } else {
                 int currentPopulation = towns.get(townName).getPopulation();
@@ -22,9 +22,6 @@ public class _03_Pirates {
                 towns.get(townName).setPopulation(currentPopulation + population);
                 towns.get(townName).setGold(currentGold + gold);
             }
-
-
-
             input = scan.nextLine();
         }
         String events = scan.nextLine();
@@ -41,14 +38,14 @@ public class _03_Pirates {
                     int currentGold = towns.get(townName).getGold();
                     towns.get(townName).setGold(currentGold - goldToSteal);
                     System.out.printf("%s plundered! %d gold stolen, %d citizens killed.%n", townName, goldToSteal, peopleKilled);
-                    if (towns.get(townName).getPopulation() <= 0 || towns.get(townName).getGold() <= 0){
+                    if (towns.get(townName).getPopulation() <= 0 || towns.get(townName).getGold() <= 0) {
                         towns.remove(townName);
                         System.out.printf("%s has been wiped off the map!%n", townName);
                     }
                     break;
                 case "Prosper":
                     int goldToProsper = Integer.parseInt(eventsParts[2]);
-                    if (goldToProsper >= 0){
+                    if (goldToProsper >= 0) {
                         int goldNow = towns.get(townName).getGold();
                         towns.get(townName).setGold(goldNow + goldToProsper);
                         System.out.printf("%d gold added to the city treasury. %s now has %d gold.%n",
@@ -62,13 +59,13 @@ public class _03_Pirates {
             }
             events = scan.nextLine();
         }
-        if (towns.isEmpty()){
+        if (towns.isEmpty()) {
             System.out.println("Ahoy, Captain! All targets have been plundered and destroyed!");
         } else {
             System.out.printf("Ahoy, Captain! There are %d wealthy settlements to go to:%n", towns.size());
             towns.entrySet().stream().sorted((t1, t2) -> {
                 int result = Integer.compare(t2.getValue().getGold(), t1.getValue().getGold());
-                if (result == 0){
+                if (result == 0) {
                     result = t1.getKey().compareTo(t2.getKey());
                 }
                 return result;
