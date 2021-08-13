@@ -75,8 +75,8 @@ public class _03_Pirates {
     }
 
     private static class TownInfo {
-        int population;
-        int gold;
+        private int population;
+        private int gold;
 
         public TownInfo(int population, int gold) {
             this.population = population;
