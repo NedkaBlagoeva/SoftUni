@@ -59,7 +59,6 @@ public class _03_Problem {
     private static class followerInfo {
         private int likes;
         private int comments;
-        private int sum;
 
         public followerInfo() {
         }
