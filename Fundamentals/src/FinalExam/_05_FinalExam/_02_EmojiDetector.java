@@ -10,11 +10,11 @@ public class _02_EmojiDetector {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
-        String regex = "([:|*]{2})(?<emoji>[A-Z][a-z]{2,})\\1";
+        String regex = "([:*]{2})(?<emoji>[A-Z][a-z]{2,})\\1";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
         char[] symbols = input.toCharArray();
-        int coolnessThreshold = 1;
+        long coolnessThreshold = 1;
         for (char symbol : symbols) {
             if (Character.isDigit(symbol)) {
                 coolnessThreshold *= Integer.parseInt(String.valueOf(symbol));
@@ -28,16 +28,14 @@ public class _02_EmojiDetector {
         }
         for (var entry : matchedEmojis.entrySet()) {
             int sum = 0;
-            for (int i = 0; i < entry.getKey().length(); i++) {
-                if (Character.isLetter(entry.getKey().charAt(i))) {
+            for (int i = 2; i < entry.getKey().length() - 2; i++) {
                     sum += entry.getKey().charAt(i);
-                }
             }
             matchedEmojis.put(entry.getKey(), sum);
         }
         System.out.printf("Cool threshold: %d%n", coolnessThreshold);
         System.out.printf("%d emojis found in the text. The cool ones are:%n", count);
-        int finalCoolnessThreshold = coolnessThreshold;
+        long finalCoolnessThreshold = coolnessThreshold;
         matchedEmojis.entrySet().stream().filter(entry -> entry.getValue() >= finalCoolnessThreshold).forEach(entry -> System.out.println(entry.getKey()));
     }
 }
