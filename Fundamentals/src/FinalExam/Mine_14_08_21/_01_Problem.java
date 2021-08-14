@@ -1,6 +1,5 @@
-package FinalExam.Mine;
+package FinalExam.Mine_14_08_21;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class _01_Problem {

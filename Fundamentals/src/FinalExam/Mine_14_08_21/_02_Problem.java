@@ -1,4 +1,4 @@
-package FinalExam.Mine;
+package FinalExam.Mine_14_08_21;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
