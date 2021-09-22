@@ -3,7 +3,7 @@ package StacksAndQueues.Lab;
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
-public class _03_MatchingBrackets {
+public class _04_MatchingBrackets {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         ArrayDeque<Integer> bracketsIndexes = new ArrayDeque<>();
