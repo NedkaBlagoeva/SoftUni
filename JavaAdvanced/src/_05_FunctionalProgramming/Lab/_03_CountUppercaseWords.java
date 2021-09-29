@@ -15,7 +15,7 @@ public class _03_CountUppercaseWords {
                 .stream(splitInput)
                 .filter(startWithUppercase)
                 .collect(Collectors.toList());
-       
+
         System.out.println(strUppercase.size());
         strUppercase.forEach(System.out::println);
     }
