@@ -13,7 +13,11 @@ public class _06_PredicateForNames {
         List<String> names = Arrays
                 .stream(scan.nextLine().split("\\s+"))
                 .collect(Collectors.toList());
+
         Predicate<String> filter = str -> str.length() <= length;
-        names.stream().filter(filter).forEach(System.out::println);
+        
+        names.stream()
+                .filter(filter)
+                .forEach(System.out::println);
     }
 }
