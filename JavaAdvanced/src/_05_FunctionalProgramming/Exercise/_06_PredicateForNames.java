@@ -15,7 +15,7 @@ public class _06_PredicateForNames {
                 .collect(Collectors.toList());
 
         Predicate<String> filter = str -> str.length() <= length;
-        
+
         names.stream()
                 .filter(filter)
                 .forEach(System.out::println);
