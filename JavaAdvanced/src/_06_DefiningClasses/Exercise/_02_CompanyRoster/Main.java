@@ -1,6 +1,5 @@
 package _06_DefiningClasses.Exercise._02_CompanyRoster;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
