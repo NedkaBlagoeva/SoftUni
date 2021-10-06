@@ -2,10 +2,10 @@ package _06_DefiningClasses.Exercise._02_CompanyRoster;
 
 public class Employee {
     //name, salary, position, department, email and age
-    private String name;
-    private double salary;
-    private String position;
-    private String department;
+    private final String name;
+    private final double salary;
+    private final String position;
+    private final String department;
     private String email;
     private int age;
 
