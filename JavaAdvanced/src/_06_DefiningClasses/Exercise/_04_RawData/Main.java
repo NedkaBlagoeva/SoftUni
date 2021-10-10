@@ -54,7 +54,7 @@ public class Main {
 
     }
 
-    public static void printFragile(Map<String, Car> cars){
+    public static void printFragile(Map<String, Car> cars) {
         cars.entrySet()
                 .stream()
                 .filter(e -> e.getValue().getCargo().getType().equals("fragile"))
@@ -65,7 +65,7 @@ public class Main {
                 .forEach(e -> System.out.println(e.getKey()));
     }
 
-    public static void printFlammable (Map<String, Car> cars){
+    public static void printFlammable(Map<String, Car> cars) {
         cars.entrySet()
                 .stream()
                 .filter(e -> e.getValue().getCargo().getType().equals("flamable"))
