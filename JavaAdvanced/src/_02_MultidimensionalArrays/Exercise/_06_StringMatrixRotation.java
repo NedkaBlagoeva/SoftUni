@@ -10,6 +10,7 @@ public class _06_StringMatrixRotation {
         String input = scan.nextLine();
         int degree = Integer.parseInt(input.substring(input.indexOf("(") + 1, input.indexOf(")")));
         //logic how to rotate matrix
+       String oo =  " ".repeat(5);
 
 
         List<String> inputData = new ArrayList<>();
@@ -18,6 +19,5 @@ public class _06_StringMatrixRotation {
             inputData.add(inputStrings);
             inputStrings = scan.nextLine();
         }
-        inputData
     }
 }
