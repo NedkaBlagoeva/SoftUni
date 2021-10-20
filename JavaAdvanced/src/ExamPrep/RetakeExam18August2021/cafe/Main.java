@@ -1,4 +1,4 @@
-package cafe;
+package ExamPrep.RetakeExam18August2021.cafe;
 
 import java.util.Scanner;
 
@@ -26,7 +26,6 @@ public class Main {
 //Add Employee
         cafe.addEmployee(secondEmployee);
         cafe.addEmployee(thirdEmployee);
-
 
         Employee oldestEmployee = cafe.getOldestEmployee();
         Employee employeeStephen = cafe.getEmployee("Sara");
