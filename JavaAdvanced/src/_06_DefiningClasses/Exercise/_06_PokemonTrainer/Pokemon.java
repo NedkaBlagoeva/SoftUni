@@ -2,8 +2,8 @@ package _06_DefiningClasses.Exercise._06_PokemonTrainer;
 
 public class Pokemon {
     //name, an element and health, all values are mandatory
-    private final String name;
-    private final String element;
+    private String name;
+    private String element;
     private int health;
 
     public Pokemon(String name, String element, int health) {
@@ -20,7 +20,7 @@ public class Pokemon {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void reduceHealth (){
+        this.health -= 10;
     }
 }
