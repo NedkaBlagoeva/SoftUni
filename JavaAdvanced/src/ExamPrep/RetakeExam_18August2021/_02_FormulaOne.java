@@ -1,4 +1,4 @@
-package ExamPrep.RetakeExam18August2021;
+package ExamPrep.RetakeExam_18August2021;
 
 import java.util.Scanner;
 
