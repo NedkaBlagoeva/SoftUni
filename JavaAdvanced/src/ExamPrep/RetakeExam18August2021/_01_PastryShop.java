@@ -65,7 +65,7 @@ public class _01_PastryShop {
         if (ingredientsStack.isEmpty()) {
             System.out.println("Ingredients left: none");
         } else {
-            System.out.print("Ingredients left: ");
+            System.out.println("Ingredients left: ");
             print(ingredientsStack);
         }
         foodToBake.forEach((key, value) -> System.out.println(key + ": " + value));
