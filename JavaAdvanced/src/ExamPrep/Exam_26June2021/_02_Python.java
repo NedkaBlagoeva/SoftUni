@@ -30,44 +30,49 @@ public class _02_Python {
             }
         }
         for (String command : commands) {
-            if ("up".equals(command)) { //row - 1
-                sRow -= 1;
-                if (isOutOfBounds(screenSize, sRow, sCol)) {
-                    sRow = screenSize - 1;
-                }
-                if (gameEnd(field)) {
-                    return;
-                }
-            } else if ("down".equals(command)) { //row + 1
-                sRow += 1;
-                if (isOutOfBounds(screenSize, sRow, sCol)) {
-                    sRow = 0;
-                }
-                if (gameEnd(field)) {
-                    return;
-                }
-            } else if ("right".equals(command)) { //col + 1
-                sCol += 1;
-                if (isOutOfBounds(screenSize, sRow, sCol)) {
-                    sCol = 0;
-                }
-                if (gameEnd(field)) {
-                    return;
-                }
-            } else if ("left".equals(command)) { //col - 1
-                sCol -= 1;
-                if (isOutOfBounds(screenSize, sRow, sCol)) {
-                    sCol = screenSize - 1;
-                }
-                if (gameEnd(field)) {
-                    return;
-                }
+            switch (command) {
+                case "up": //row - 1
+                    sRow -= 1;
+                    if (isOutOfBounds(screenSize, sRow, sCol)) {
+                        sRow = screenSize - 1;
+                    }
+                    if (gameEnd(field)) {
+                        return;
+                    }
+                    break;
+                case "down": //row + 1
+                    sRow += 1;
+                    if (isOutOfBounds(screenSize, sRow, sCol)) {
+                        sRow = 0;
+                    }
+                    if (gameEnd(field)) {
+                        return;
+                    }
+                    break;
+                case "right": //col + 1
+                    sCol += 1;
+                    if (isOutOfBounds(screenSize, sRow, sCol)) {
+                        sCol = 0;
+                    }
+                    if (gameEnd(field)) {
+                        return;
+                    }
+                    break;
+                case "left": //col - 1
+                    sCol -= 1;
+                    if (isOutOfBounds(screenSize, sRow, sCol)) {
+                        sCol = screenSize - 1;
+                    }
+                    if (gameEnd(field)) {
+                        return;
+                    }
+                    break;
             }
         }
         System.out.printf("You lose! There is still %d food to be eaten.", food);
     }
 
-    private static boolean gameEnd(char [][] field){
+    private static boolean gameEnd(char[][] field) {
         checkFood(field, sRow, sCol);
         if (foodWin()) {
             return true;
