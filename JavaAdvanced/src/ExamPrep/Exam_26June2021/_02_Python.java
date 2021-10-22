@@ -30,64 +30,49 @@ public class _02_Python {
             }
         }
         for (String command : commands) {
-            switch (command) {
-                case "up": //row - 1
-                    sRow -= 1;
-                    if (isOutOfBounds(screenSize, sRow, sCol)) {
-                        sRow = screenSize - 1;
-                    }
-                    checkFood(field, sRow, sCol);
-                    if (foodWin()) {
-                        return;
-                    }
-                    if (enemyKill(field, sRow, sCol)) {
-                        return;
-                    }
-                    break;
-                case "down": //row + 1
-                    sRow += 1;
-                    if (isOutOfBounds(screenSize, sRow, sCol)) {
-                        sRow = 0;
-                    }
-                    checkFood(field, sRow, sCol);
-                    if (foodWin()) {
-                        return;
-                    }
-                    if (enemyKill(field, sRow, sCol)) {
-                        return;
-                    }
-                    break;
-                case "right": //col + 1
-                    sCol += 1;
-                    if (isOutOfBounds(screenSize, sRow, sCol)) {
-                        sCol = 0;
-                    }
-                    checkFood(field, sRow, sCol);
-                    if (foodWin()) {
-                        return;
-                    }
-                    if (enemyKill(field, sRow, sCol)) {
-                        return;
-                    }
-                    break;
-                case "left": //col - 1
-                    sCol -= 1;
-                    if (isOutOfBounds(screenSize, sRow, sCol)) {
-                        sCol = screenSize - 1;
-                    }
-                    checkFood(field, sRow, sCol);
-                    if (foodWin()) {
-                        return;
-                    }
-                    if (enemyKill(field, sRow, sCol)) {
-                        return;
-                    }
-                    break;
-                default:
-                    break;
+            if ("up".equals(command)) { //row - 1
+                sRow -= 1;
+                if (isOutOfBounds(screenSize, sRow, sCol)) {
+                    sRow = screenSize - 1;
+                }
+                if (gameEnd(field)) {
+                    return;
+                }
+            } else if ("down".equals(command)) { //row + 1
+                sRow += 1;
+                if (isOutOfBounds(screenSize, sRow, sCol)) {
+                    sRow = 0;
+                }
+                if (gameEnd(field)) {
+                    return;
+                }
+            } else if ("right".equals(command)) { //col + 1
+                sCol += 1;
+                if (isOutOfBounds(screenSize, sRow, sCol)) {
+                    sCol = 0;
+                }
+                if (gameEnd(field)) {
+                    return;
+                }
+            } else if ("left".equals(command)) { //col - 1
+                sCol -= 1;
+                if (isOutOfBounds(screenSize, sRow, sCol)) {
+                    sCol = screenSize - 1;
+                }
+                if (gameEnd(field)) {
+                    return;
+                }
             }
         }
         System.out.printf("You lose! There is still %d food to be eaten.", food);
+    }
+
+    private static boolean gameEnd(char [][] field){
+        checkFood(field, sRow, sCol);
+        if (foodWin()) {
+            return true;
+        }
+        return enemyKill(field, sRow, sCol);
     }
 
     private static boolean enemyKill(char[][] matrix, int sRow, int sCol) {
