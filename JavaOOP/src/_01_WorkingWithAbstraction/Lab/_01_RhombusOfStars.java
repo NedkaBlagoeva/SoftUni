@@ -7,6 +7,7 @@ public class _01_RhombusOfStars {
 
         Scanner scan = new Scanner(System.in);
         int n = Integer.parseInt(scan.nextLine());
+        int b  = 4;
 
     }
 }
