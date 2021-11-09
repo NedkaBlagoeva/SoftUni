@@ -6,8 +6,17 @@ public class _01_RhombusOfStars {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        int n = Integer.parseInt(scan.nextLine());
-        int b  = 4;
+        int n = 4;
 
+
+        for (int r = 0; r < n; r++) {
+            for (int i = r; i < n - 1; i++) {
+                System.out.print(" ");
+            }
+            for (int i = 0; i < r; i++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 }
