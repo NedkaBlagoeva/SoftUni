@@ -2,10 +2,10 @@ package _04_InterfacesAndAbstraction.Lab._01_And_02_CarShop;
 
 public class CarImpl implements Car {
 
-    private String color;
-    private Integer horsePower;
-    private String countryProduced;
-    private String model;
+    private final String color;
+    private final Integer horsePower;
+    private final String countryProduced;
+    private final String model;
 
 
     public CarImpl(String model, String color, Integer horsePower, String countryProduced) {

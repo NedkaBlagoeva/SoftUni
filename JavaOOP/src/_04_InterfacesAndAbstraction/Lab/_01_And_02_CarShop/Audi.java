@@ -1,8 +1,8 @@
 package _04_InterfacesAndAbstraction.Lab._01_And_02_CarShop;
 
 public class Audi extends CarImpl implements Rentable {
-    private Integer days;
-    private Double pricePerDay;
+    private final Integer days;
+    private final Double pricePerDay;
 
     public Audi(String model, String color, Integer horsePower, String countryProduced, Integer days, Double pricePerDay) {
         super(model, color, horsePower, countryProduced);

@@ -1,7 +1,7 @@
 package _04_InterfacesAndAbstraction.Lab._01_And_02_CarShop;
 
 public class Seat extends CarImpl implements Sellable{
-    private Double price;
+    private final Double price;
 
     public Seat(String model, String color, Integer horsePower, String country, Double price) {
         super(model, color,horsePower, country);
