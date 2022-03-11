@@ -1,4 +1,4 @@
-package com.bookshop.ex.model.entity.enms;
+package com.bookshop.ex.model.entity.enums;
 
 public enum EditionType {
     NORMAL,

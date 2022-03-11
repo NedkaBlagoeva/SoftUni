@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -22,7 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void seedCategory() throws IOException {
 
-        if (categoryRepository.count() > 0){
+        if (categoryRepository.count() > 0) {
             return;
         }
 
@@ -34,5 +39,26 @@ public class CategoryServiceImpl implements CategoryService {
 
                 });
 
+    }
+
+    @Override
+    public Set<Category> getRandomCategories() {
+        Random random = new Random();
+        long size = this.categoryRepository.count();
+
+        // 10 -> [0..9] -> [1..10]
+        int categoriesCount = random.nextInt((int) size) + 1;
+
+        Set<Long> categoriesIds = new HashSet<>();
+
+        for (int i = 0; i < categoriesCount; i++) {
+            int nextId = random.nextInt((int) size) + 1;
+
+            categoriesIds.add((long) nextId);
+        }
+
+        List<Category> allById = this.categoryRepository.findAllById(categoriesIds);
+
+        return new HashSet<>(allById);
     }
 }

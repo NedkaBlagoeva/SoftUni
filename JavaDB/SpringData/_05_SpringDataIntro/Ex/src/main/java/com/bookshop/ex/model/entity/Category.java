@@ -7,7 +7,7 @@ import java.util.Set;
 @Table (name = "categories")
 public class Category extends BaseEntity{
 
-    @Column (nullable = false, unique = true)
+    @Column (nullable = false)
     private String name;
 
 

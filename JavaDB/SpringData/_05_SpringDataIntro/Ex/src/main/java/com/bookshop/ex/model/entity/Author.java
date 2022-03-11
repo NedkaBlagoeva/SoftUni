@@ -2,10 +2,7 @@ package com.bookshop.ex.model.entity;
 
 import org.hibernate.annotations.Cache;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +16,7 @@ public class Author extends BaseEntity{
     @Column (name = "last_name", nullable = false)
     private String lastName;
 
-    @OneToMany (targetEntity = Book.class, mappedBy = "author")
+    @OneToMany (targetEntity = Book.class, mappedBy = "author", fetch = FetchType.EAGER)
     private Set<Book> books;
 
     public Author() {
