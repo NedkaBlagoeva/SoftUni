@@ -69,7 +69,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(String firstName, String lastName) {
-       return bookRepository
+        return bookRepository
                 .findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName, lastName)
                 .stream()
                 .map(book -> String.format("%s %s %d",
@@ -78,6 +78,68 @@ public class BookServiceImpl implements BookService {
                         book.getCopies()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<String> findAllByAgeRestriction(AgeRestriction ageRestriction) {
+        return bookRepository
+                .findAllByAgeRestriction(ageRestriction)
+                .stream().map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllByEditionTypeAndCopiesLessThan(EditionType editionType, Integer copies) {
+        return bookRepository
+                .findAllByEditionTypeAndCopiesLessThan(editionType, copies)
+                .stream().map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllByPriceLessThanOrPriceGreaterThan(BigDecimal price, BigDecimal price2) {
+        return bookRepository
+                .findAllByPriceLessThanOrPriceGreaterThan(price, price2)
+                .stream().map(book -> book.getTitle() + " - $" + book.getPrice())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllByReleaseDateBeforeOrReleaseDateAfter(int year) {
+        LocalDate before = LocalDate.of(year, 01, 01);
+        LocalDate after = LocalDate.of(year, 12, 31);
+
+        return bookRepository
+                .findAllByReleaseDateBeforeOrReleaseDateAfter(before, after)
+                .stream().map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllByReleaseDateBefore(LocalDate releaseDate) {
+        return bookRepository
+                .findAllByReleaseDateBefore(releaseDate)
+                .stream()
+                .map(book -> String.format("%s %s %.2f", book.getTitle(), book.getEditionType(), book.getPrice()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllByTitleContains(String search) {
+        return bookRepository
+                .findAllByTitleContains(search)
+                .stream().map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> findAllByAuthorLastNameStartsWith(String authorLastName) {
+        return bookRepository
+                .findAllByAuthor_LastNameStartsWith(authorLastName)
+                .stream().map(book -> String.format("%s (%s %s)",
+                        book.getTitle(), book.getAuthor().getFirstName(), book.getAuthor().getLastName()))
+                .collect(Collectors.toList());
+    }
+
 
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

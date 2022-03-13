@@ -1,9 +1,13 @@
 package com.example.springintro.repository;
 
+import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
+import com.example.springintro.model.entity.EditionType;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -15,4 +19,23 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
 
     List<Book> findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(String author_firstName, String author_lastName);
+
+    //the titles of all books, for which the age restriction
+    List<Book> findAllByAgeRestriction(AgeRestriction ageRestriction);
+
+    //the titles of the golden edition books, which have less than 5000 copies.
+    List<Book> findAllByEditionTypeAndCopiesLessThan(EditionType editionType, Integer copies);
+
+    //the titles and prices of books with price lower than 5 and higher than 40
+    List<Book> findAllByPriceLessThanOrPriceGreaterThan(BigDecimal price, BigDecimal price2);
+
+    //the titles of all books that are NOT released in a given year
+    List<Book> findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate before, LocalDate after);
+
+    List<Book> findAllByTitleContains(String search);
+
+    List<Book> findAllByAuthor_LastNameStartsWith(String authorLastName);
+
+    List<Book> findAllByTitleLGreaterThan(String title);
+
 }
