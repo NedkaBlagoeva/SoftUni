@@ -37,7 +37,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         seedData();
         System.out.println("Enter exercise number (1-13): ");
         int exNum = Integer.parseInt(scan.nextLine());
-        switch (exNum){
+        switch (exNum) {
             case 1 -> task01BooksTitlesByAgeRestriction();
             case 2 -> task02GoldenBooks();
             case 3 -> task03BooksByPrice();
@@ -60,7 +60,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private void task09CountBooks() {
 
-
+        System.out.println("Enter length: ");
+        int length = Integer.parseInt(scan.nextLine());
+        System.out.println(bookService.findAllByTitleLengthGreaterThan(length));
     }
 
     private void task08BookTitlesSearch() {
@@ -138,7 +140,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                 .findAllByAgeRestriction(AgeRestriction.valueOf(ageRestriction))
                 .forEach(System.out::println);
     }
-
 
 
     private void printALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {

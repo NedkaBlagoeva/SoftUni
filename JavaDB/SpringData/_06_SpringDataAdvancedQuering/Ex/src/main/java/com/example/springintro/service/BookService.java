@@ -32,4 +32,6 @@ public interface BookService {
 
     List<String> findAllByAuthorLastNameStartsWith(String authorLastName);
 
+    int findAllByTitleLengthGreaterThan(int length);
+
 }

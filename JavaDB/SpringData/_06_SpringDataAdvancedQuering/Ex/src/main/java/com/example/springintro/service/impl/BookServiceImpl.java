@@ -140,6 +140,13 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public int findAllByTitleLengthGreaterThan(int length) {
+        return bookRepository
+                .findAllByTitleLengthGreaterThan(length)
+                .size();
+    }
+
 
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

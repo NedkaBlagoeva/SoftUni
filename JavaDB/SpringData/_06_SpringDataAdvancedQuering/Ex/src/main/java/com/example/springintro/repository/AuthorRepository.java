@@ -15,4 +15,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     //first name ends with a given string.
     List<Author> findAllByFirstNameEndsWith(String endString);
+
+    //prints the total number of book copies by author. Order the results descending by total book copies.
+    
 }
