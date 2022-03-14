@@ -13,8 +13,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -147,6 +149,30 @@ public class BookServiceImpl implements BookService {
                 .size();
     }
 
+    @Override
+    public String findByTitle(String title) {
+        Book book = bookRepository.findByTitle(title);
+        return String.format("%s %s %s %.2f",
+                book.getTitle(),book.getEditionType(), book.getAgeRestriction(), book.getPrice());
+    }
+
+
+    public int addCopiesToBooksAfter(String dateAfter, int amount) {
+        DateTimeFormatter df = new DateTimeFormatterBuilder()
+                // case insensitive to parse JAN and FEB
+                .parseCaseInsensitive()
+                // add pattern
+                .appendPattern("dd MMM yyyy")
+                // create formatter (use English Locale to parse month names)
+                .toFormatter(Locale.ENGLISH);
+        LocalDate after = LocalDate.parse(dateAfter, df);
+        return this.bookRepository.addCopiesToBooksAfter(after, amount);
+    }
+
+    @Override
+    public int deleteAllByCopiesLessThan(Integer amount) {
+        return bookRepository.deleteAllByCopiesLessThan(amount);
+    }
 
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

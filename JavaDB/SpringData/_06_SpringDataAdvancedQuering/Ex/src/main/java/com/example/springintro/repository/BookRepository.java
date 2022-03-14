@@ -4,9 +4,11 @@ import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
 import com.example.springintro.model.entity.EditionType;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -38,5 +40,17 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b WHERE length(b.title) > :length")
     List<Book> findAllByTitleLengthGreaterThan(int length);
+
+    Book findByTitle(String title);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Book b SET b.copies = b.copies + :amount WHERE b.releaseDate > :date")
+    int addCopiesToBooksAfter(LocalDate date, int amount);
+
+    //removes from the database those books, which copies are lower than a given number
+    @Transactional
+    int deleteAllByCopiesLessThan(Integer copies);
+
 
 }

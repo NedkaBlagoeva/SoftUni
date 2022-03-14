@@ -34,4 +34,10 @@ public interface BookService {
 
     int findAllByTitleLengthGreaterThan(int length);
 
+    String findByTitle(String title);
+
+    int addCopiesToBooksAfter(String date, int amount);
+
+    int deleteAllByCopiesLessThan(Integer copies);
+
 }

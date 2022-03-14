@@ -17,5 +17,8 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     List<Author> findAllByFirstNameEndsWith(String endString);
 
     //prints the total number of book copies by author. Order the results descending by total book copies.
-    
+    @Query("SELECT sum(b.copies) FROM Author a JOIN Book b GROUP BY a.id")
+    List<Author> findTotalBookCopies();
+
+
 }

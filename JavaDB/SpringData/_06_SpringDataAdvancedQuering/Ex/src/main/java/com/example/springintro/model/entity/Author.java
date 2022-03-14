@@ -45,4 +45,8 @@ public class Author extends BaseEntity {
     public void setBooks(Set<Book> books) {
         this.books = books;
     }
+
+    public int totalAmountOfCopies(){
+        return this.books.stream().mapToInt(Book::getCopies).sum();
+    }
 }

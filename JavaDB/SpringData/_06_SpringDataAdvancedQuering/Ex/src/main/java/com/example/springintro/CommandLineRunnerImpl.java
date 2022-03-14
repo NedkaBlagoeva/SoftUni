@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.Year;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -47,6 +47,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 7 -> task07BooksSearch();
             case 8 -> task08BookTitlesSearch();
             case 9 -> task09CountBooks();
+            case 10 -> task10TotalBookCopies();
+            case 11 -> task11ReducedBook();
+            case 12 -> task12IncreaseBookCopies();
+            case 13 -> task13RemoveBooks();
 
         }
 
@@ -56,6 +60,40 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        printAllAuthorsAndNumberOfTheirBooks();
 //        printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
+    }
+
+    private void task13RemoveBooks() {
+
+        System.out.println("Enter amount: ");
+        int amount = Integer.parseInt(scan.nextLine());
+        System.out.println(bookService.deleteAllByCopiesLessThan(amount));
+    }
+
+    private void task12IncreaseBookCopies() {
+
+        System.out.println("Enter date: ");
+        String strDate = scan.nextLine();
+
+        System.out.println("Enter amount: ");
+        int amount = Integer.parseInt(scan.nextLine());
+
+        System.out.println(bookService
+                .addCopiesToBooksAfter(strDate, amount) * amount);
+
+    }
+
+    private void task11ReducedBook() {
+
+        System.out.println("Enter title: ");
+        String title = scan.nextLine();
+        System.out.println(bookService.findByTitle(title));
+    }
+
+    private void task10TotalBookCopies() {
+
+        authorService
+                .findTotalBookCopies()
+                .forEach((k, v) -> System.out.println(k + " - " + v));
     }
 
     private void task09CountBooks() {
@@ -133,6 +171,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void task01BooksTitlesByAgeRestriction() {
+
         System.out.println("Enter age restriction (MINOR, TEEN, ADULT): ");
         String ageRestriction = scan.nextLine().toUpperCase();
 
