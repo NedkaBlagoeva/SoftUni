@@ -6,6 +6,8 @@ import com.example.springintro.model.entity.EditionType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -52,5 +54,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Transactional
     int deleteAllByCopiesLessThan(Integer copies);
 
+    @Procedure(procedureName = "total_amount_of_books_by_author")
+    Integer totalNumberOfBooksByAuthorsName(@Param("1") String fullName);
 
 }

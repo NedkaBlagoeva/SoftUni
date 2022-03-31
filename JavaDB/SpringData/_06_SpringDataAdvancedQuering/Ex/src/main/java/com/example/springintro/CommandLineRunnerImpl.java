@@ -51,6 +51,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 11 -> task11ReducedBook();
             case 12 -> task12IncreaseBookCopies();
             case 13 -> task13RemoveBooks();
+            case 14 -> task14StoredProcedure();
 
         }
 
@@ -60,6 +61,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        printAllAuthorsAndNumberOfTheirBooks();
 //        printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
+    }
+
+    private void task14StoredProcedure() {
+
+        System.out.println("Enter name: ");
+        String name = scan.nextLine();
+        System.out.println(bookService.totalNumberOfBooksByAuthorsName(name));
     }
 
     private void task13RemoveBooks() {
