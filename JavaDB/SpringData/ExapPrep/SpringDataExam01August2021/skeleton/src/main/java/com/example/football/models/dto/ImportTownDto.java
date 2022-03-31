@@ -1,14 +1,13 @@
 package com.example.football.models.dto;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 public class ImportTownDto {
-    @Min(value = 2, message = "Invalid town")
+  @Size(min = 2)
     private String name;
 
-    @Positive(message = "Invalid town")
+    @Positive
     private int population;
 
     @Size(min = 10)

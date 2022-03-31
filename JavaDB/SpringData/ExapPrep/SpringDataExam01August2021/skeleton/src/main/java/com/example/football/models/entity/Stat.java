@@ -21,13 +21,6 @@ public class Stat {
     public Stat() {
     }
 
-    public Stat(Long id, float shooting, float passing, float endurance) {
-        this.id = id;
-        this.shooting = shooting;
-        this.passing = passing;
-        this.endurance = endurance;
-    }
-
     public Long getId() {
         return id;
     }

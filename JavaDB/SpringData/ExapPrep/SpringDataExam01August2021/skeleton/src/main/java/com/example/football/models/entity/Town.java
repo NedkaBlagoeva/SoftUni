@@ -20,13 +20,6 @@ public class Town {
     public Town() {
     }
 
-    public Town(Long id, String name, int population, String travelGuide) {
-        this.id = id;
-        this.name = name;
-        this.population = population;
-        this.travelGuide = travelGuide;
-    }
-
     public Long getId() {
         return id;
     }

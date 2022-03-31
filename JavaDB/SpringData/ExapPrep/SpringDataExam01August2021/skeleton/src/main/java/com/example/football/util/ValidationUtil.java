@@ -1,4 +1,4 @@
-package com.example.ex.util;
+package com.example.football.util;
 
 import javax.validation.ConstraintViolation;
 import java.util.Set;
@@ -6,4 +6,5 @@ import java.util.Set;
 public interface ValidationUtil {
 
     <E> Set<ConstraintViolation<E>> violation(E entity);
+
 }

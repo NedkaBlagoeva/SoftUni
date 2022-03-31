@@ -33,16 +33,6 @@ public class Team {
         this.players = new HashSet<>();
     }
 
-    public Team(Long id, String name, String stadiumName, int fanBase, String history, Town town) {
-        this.id = id;
-        this.name = name;
-        this.stadiumName = stadiumName;
-        this.fanBase = fanBase;
-        this.history = history;
-        this.town = town;
-        this.players = new HashSet<>();
-    }
-
     public Long getId() {
         return id;
     }

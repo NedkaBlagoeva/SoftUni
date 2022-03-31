@@ -1,4 +1,4 @@
-package com.example.ex.util;
+package com.example.football.util;
 
 import org.springframework.stereotype.Component;
 
