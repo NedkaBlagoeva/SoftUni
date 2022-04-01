@@ -1,4 +1,4 @@
-package softuni.exam.models;
+package softuni.exam.models.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,5 +10,13 @@ public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

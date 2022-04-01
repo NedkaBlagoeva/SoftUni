@@ -1,11 +1,12 @@
-package softuni.exam.models;
+package softuni.exam.models.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity(name = "offers")
@@ -20,7 +21,7 @@ public class Offer extends BaseEntity{
     private boolean hasGoldStatus;
 
     @Column(name = "added_on")
-    private LocalDate addedOn;
+    private LocalDateTime addedOn;
 
     @ManyToOne
     private Car car;
@@ -32,6 +33,30 @@ public class Offer extends BaseEntity{
     private Set<Picture> pictures;
 
     public Offer() {
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public Set<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(Set<Picture> pictures) {
+        this.pictures = pictures;
     }
 
     public BigDecimal getPrice() {
@@ -58,11 +83,24 @@ public class Offer extends BaseEntity{
         this.hasGoldStatus = hasGoldStatus;
     }
 
-    public LocalDate getAddedOn() {
+    public LocalDateTime getAddedOn() {
         return addedOn;
     }
 
-    public void setAddedOn(LocalDate addedOn) {
+    public void setAddedOn(LocalDateTime addedOn) {
         this.addedOn = addedOn;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Offer offer = (Offer) o;
+        return Objects.equals(description, offer.description) && Objects.equals(addedOn, offer.addedOn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, addedOn);
     }
 }

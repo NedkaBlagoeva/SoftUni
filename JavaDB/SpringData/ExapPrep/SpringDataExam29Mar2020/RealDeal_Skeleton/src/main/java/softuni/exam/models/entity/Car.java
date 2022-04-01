@@ -1,7 +1,8 @@
-package softuni.exam.models;
+package softuni.exam.models.entity;
 
 import javax.persistence.Entity;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity(name = "cars")
 public class Car extends BaseEntity{
@@ -10,7 +11,7 @@ public class Car extends BaseEntity{
 
     private String model;
 
-    private int kilometers;
+    private Integer kilometers;
 
     private LocalDate registeredOn;
 
@@ -33,11 +34,11 @@ public class Car extends BaseEntity{
         this.model = model;
     }
 
-    public int getKilometers() {
+    public Integer getKilometers() {
         return kilometers;
     }
 
-    public void setKilometers(int kilometers) {
+    public void setKilometers(Integer kilometers) {
         this.kilometers = kilometers;
     }
 
@@ -47,5 +48,18 @@ public class Car extends BaseEntity{
 
     public void setRegisteredOn(LocalDate registeredOn) {
         this.registeredOn = registeredOn;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return kilometers == car.kilometers && Objects.equals(make, car.make) && Objects.equals(model, car.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(make, model, kilometers);
     }
 }

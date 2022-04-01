@@ -1,7 +1,7 @@
-package softuni.exam.models;
+package softuni.exam.models.entity;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity(name = "pictures")
@@ -11,13 +11,18 @@ public class Picture extends BaseEntity{
     private String name;
 
     @Column(name = "date_and_time")
-    private LocalDate dateAndTime;
+    private LocalDateTime dateAndTime;
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
 
     @ManyToOne
     private Car car;
-
-    @ManyToMany(mappedBy = "pictures")
-    private Set<Offer> offers;
 
     public Picture() {
     }
@@ -30,11 +35,11 @@ public class Picture extends BaseEntity{
         this.name = name;
     }
 
-    public LocalDate getDateAndTime() {
+    public LocalDateTime getDateAndTime() {
         return dateAndTime;
     }
 
-    public void setDateAndTime(LocalDate dateAndTime) {
+    public void setDateAndTime(LocalDateTime dateAndTime) {
         this.dateAndTime = dateAndTime;
     }
 }

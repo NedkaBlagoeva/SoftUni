@@ -1,6 +1,7 @@
 package softuni.exam.service.impl;
 
 import org.springframework.stereotype.Service;
+import softuni.exam.repository.OfferRepository;
 import softuni.exam.service.OfferService;
 
 import javax.xml.bind.JAXBException;
@@ -8,6 +9,13 @@ import java.io.IOException;
 
 @Service
 public class OfferServiceImpl implements OfferService {
+
+    private final OfferRepository offerRepository;
+
+    public OfferServiceImpl(OfferRepository offerRepository) {
+        this.offerRepository = offerRepository;
+    }
+
     @Override
     public boolean areImported() {
         return false;
