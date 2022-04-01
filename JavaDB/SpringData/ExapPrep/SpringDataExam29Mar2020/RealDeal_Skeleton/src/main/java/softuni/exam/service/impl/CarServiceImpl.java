@@ -60,7 +60,14 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
+    //todo
     public String getCarsOrderByPicturesCountThenByMake() {
         return null;
+    }
+
+    @Override
+    public Car findById(Long id) {
+        return carRepository.findById(id).orElse(null);
+
     }
 }
