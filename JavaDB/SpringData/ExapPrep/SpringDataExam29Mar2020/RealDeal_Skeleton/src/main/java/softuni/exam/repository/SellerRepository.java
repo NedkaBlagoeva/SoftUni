@@ -7,4 +7,6 @@ import softuni.exam.models.entity.Seller;
 @Repository
 public interface SellerRepository extends JpaRepository<Seller, Long> {
 
+
+
 }

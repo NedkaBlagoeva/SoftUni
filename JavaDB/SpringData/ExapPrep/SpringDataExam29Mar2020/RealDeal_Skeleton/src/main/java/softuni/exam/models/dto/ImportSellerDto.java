@@ -1,32 +1,37 @@
-package softuni.exam.models.entity;
+package softuni.exam.models.dto;
 
 import softuni.exam.models.entity.enums.Rating;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
-@Entity(name = "sellers")
-public class Seller extends BaseEntity{
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ImportSellerDto {
 
-    @Column(name = "first_name")
+    @XmlElement(name = "first-name")
+    @Size(min = 2, max = 19)
     private String firstName;
 
-    @Column(name = "last_name")
+    @XmlElement(name = "last-name")
+    @Size(min = 2, max = 19)
     private String lastName;
 
-    @Column(unique = true)
+    @XmlElement
+    @Email
     private String email;
 
-    @Enumerated(EnumType.STRING)
+    @XmlElement
+    @NotNull
     private Rating rating;
 
-    @Column(nullable = false)
+    @XmlElement
+    @NotBlank
     private String town;
-
-    public Seller() {
-    }
 
     public String getFirstName() {
         return firstName;

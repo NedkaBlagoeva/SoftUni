@@ -1,5 +1,7 @@
 package softuni.exam.service;
 
+import softuni.exam.models.entity.Seller;
+
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
@@ -11,4 +13,5 @@ public interface SellerService {
 
     String importSellers() throws IOException, JAXBException;
 
+    Seller findById(Long id);
 }

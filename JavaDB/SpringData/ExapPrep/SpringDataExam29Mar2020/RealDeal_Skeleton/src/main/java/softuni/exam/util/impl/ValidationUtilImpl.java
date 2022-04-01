@@ -1,7 +1,8 @@
-package softuni.exam.util;
+package softuni.exam.util.impl;
 
 
 import org.springframework.stereotype.Component;
+import softuni.exam.util.ValidationUtil;
 
 import javax.validation.Validation;
 import javax.validation.Validator;

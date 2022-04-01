@@ -2,7 +2,7 @@ package softuni.exam.models.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Set;
+
 
 @Entity(name = "pictures")
 public class Picture extends BaseEntity{
@@ -13,18 +13,18 @@ public class Picture extends BaseEntity{
     @Column(name = "date_and_time")
     private LocalDateTime dateAndTime;
 
+    @ManyToOne
+    private Car car;
+
+    public Picture() {
+    }
+
     public Car getCar() {
         return car;
     }
 
     public void setCar(Car car) {
         this.car = car;
-    }
-
-    @ManyToOne
-    private Car car;
-
-    public Picture() {
     }
 
     public String getName() {

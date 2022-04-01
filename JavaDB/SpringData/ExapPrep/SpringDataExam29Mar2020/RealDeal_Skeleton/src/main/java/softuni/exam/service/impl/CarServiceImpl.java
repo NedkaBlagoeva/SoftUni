@@ -12,8 +12,7 @@ import softuni.exam.util.ValidationUtil;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -50,8 +49,6 @@ public class CarServiceImpl implements CarService {
                 Car car = modelMapper.map(importCarDto, Car.class);
                 this.carRepository.save(car);
                 result.add(String.format("Successfully imported car - %s - %s", car.getMake(), car.getModel()));
-
-                //valid Successfully imported car - BMW - 750
             } else {
                 result.add("Invalid Car");
             }
@@ -60,14 +57,17 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    //todo
-    public String getCarsOrderByPicturesCountThenByMake() {
-        return null;
+    public Car findById(Long id) {
+        return carRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Car findById(Long id) {
-        return carRepository.findById(id).orElse(null);
-
+    //todo
+    public String getCarsOrderByPicturesCountThenByMake() {
+        StringBuilder sb = new StringBuilder();
+        carRepository
+                .findAllCarsOrderByPicturesSizeAndMake()
+                .forEach(c -> sb.append(c.toString()).append(System.lineSeparator()));
+        return sb.toString();
     }
 }

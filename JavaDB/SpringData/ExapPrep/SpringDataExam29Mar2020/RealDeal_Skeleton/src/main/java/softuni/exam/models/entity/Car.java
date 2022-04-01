@@ -1,8 +1,11 @@
 package softuni.exam.models.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "cars")
 public class Car extends BaseEntity{
@@ -14,6 +17,9 @@ public class Car extends BaseEntity{
     private Integer kilometers;
 
     private LocalDate registeredOn;
+
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER)
+    private Set<Picture> pictures;
 
     public Car() {
     }
@@ -61,5 +67,23 @@ public class Car extends BaseEntity{
     @Override
     public int hashCode() {
         return Objects.hash(make, model, kilometers);
+    }
+
+    public Set<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(Set<Picture> pictures) {
+        this.pictures = pictures;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Car make - %s, model - %s%n" +
+                "\tKilometers - %d%n" +
+                "\tRegistered on - %s%n" +
+                "\tNumber of pictures - %d",
+                make, model, kilometers, registeredOn, pictures.size());
+
     }
 }
