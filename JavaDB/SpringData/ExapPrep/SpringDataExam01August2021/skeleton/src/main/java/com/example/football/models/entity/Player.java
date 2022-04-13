@@ -10,7 +10,7 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-        //o	Note: The players table has relations with the towns, teams and stats tables.
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
@@ -127,7 +127,7 @@ public class Player {
     public String toString() {
         return String.format("Player - %s %s\n" +
                 "\tPosition - %s\n" +
-                "Team - %s\n" +
+                "\tTeam - %s\n" +
                 "\tStadium - %s\n",
                 firstName, lastName, position, team.getName(), team.getStadiumName());
     }

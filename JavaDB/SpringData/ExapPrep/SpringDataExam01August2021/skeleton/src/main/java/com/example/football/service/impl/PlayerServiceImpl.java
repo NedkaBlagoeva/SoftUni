@@ -82,7 +82,7 @@ public class PlayerServiceImpl implements PlayerService {
     public String exportBestPlayers() {
         StringBuilder sb = new StringBuilder();
         playerRepository
-                .bestPlayersExport(LocalDate.of(1995, 01,01), LocalDate.of( 01, 01, 2003))
+                .bestPlayersExport(LocalDate.of(1995, 01,01), LocalDate.of( 2003, 01, 01))
                 .forEach(player -> sb.append(player).append(System.lineSeparator()));
 
         return sb.toString();
