@@ -74,10 +74,7 @@ public class OfferServiceImpl implements OfferService {
     public String exportOffers() {
         StringBuilder sb = new StringBuilder();
         List<Offer> bestOffers = this.offerRepository.exportBestOffers(ApartmentType.three_rooms);
-        for (Offer offer : bestOffers) {
-            sb.append(offer.toString())
-                    .append(System.lineSeparator());
-        }
+        bestOffers.forEach(o -> sb.append(o).append(System.lineSeparator()));
         return sb.toString();
     }
 }

@@ -60,11 +60,11 @@ public class Offer extends BaseEntity {
                         "   \t\t-Apartment area: %.2f\n" +
                         "   \t\t--Town: %s\n" +
                         "   \t\t---Price: %.2f$\n",
-                getAgent().getFirstName(),
-                getAgent().getLastName(),
+                agent.getFirstName(),
+                agent.getLastName(),
                 id,
-                getApartment().getArea(),
-                getApartment().getTown().getTownName(),
-                getPrice());
+                apartment.getArea(),
+                apartment.getTown().getTownName(),
+                price);
     }
 }

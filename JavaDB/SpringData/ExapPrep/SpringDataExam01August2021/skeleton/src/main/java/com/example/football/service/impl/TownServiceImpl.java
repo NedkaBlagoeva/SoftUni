@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -69,6 +70,11 @@ public class TownServiceImpl implements TownService {
         }
 
         return String.join("\n", result);
+    }
+
+    @Override
+    public Optional<Town> findByName(String name) {
+        return townRepository.findByName(name);
     }
 }
 

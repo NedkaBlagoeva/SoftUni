@@ -20,4 +20,9 @@ public class ValidationUtilImpl implements ValidationUtil {
     public <E> Set<ConstraintViolation<E>> violation(E entity) {
         return validator.validate(entity);
     }
+
+    @Override
+    public <E> boolean isValid(E entity) {
+        return validator.validate(entity).isEmpty();
+    }
 }
