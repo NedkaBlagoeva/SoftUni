@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-//ToDo:
 public interface LaptopRepository extends JpaRepository<Laptop, Long> {
     Optional<Laptop> findByMacAddress(String macAddress);
 
