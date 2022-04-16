@@ -13,6 +13,7 @@ public interface LaptopRepository extends JpaRepository<Laptop, Long> {
     @Query("select l from laptops l order by l.cpuSpeed desc , l.ram desc ,l.storage desc , l.macAddress")
     List<Laptop> bestLaptopsExport();
 
+
     //•	Order Them by the cpu speed in descending order,
     // Then by the ram in descending order,
     // then by the storage in descending order and
