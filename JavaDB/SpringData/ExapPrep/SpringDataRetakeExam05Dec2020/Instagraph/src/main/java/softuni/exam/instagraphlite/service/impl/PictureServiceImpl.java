@@ -3,6 +3,7 @@ package softuni.exam.instagraphlite.service.impl;
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.instagraphlite.models.ImportPictureDto;
 import softuni.exam.instagraphlite.repository.PictureRepository;
 import softuni.exam.instagraphlite.service.PictureService;
 import softuni.exam.instagraphlite.util.ValidationUtil;
@@ -41,6 +42,7 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public String importPictures() throws IOException {
+        ImportPictureDto importPictureDto = gson.fromJson(PICTURES_FILE_PATH, ImportPictureDto.class);
         return null;
     }
 
