@@ -1,8 +1,15 @@
-package softuni.exam.instagraphlite.models;
+package softuni.exam.instagraphlite.models.entity;
+
+import org.springframework.util.comparator.Comparators;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Set;
 
 @Entity(name = "users")
 public class User extends BaseEntity{
@@ -15,6 +22,9 @@ public class User extends BaseEntity{
 
     @ManyToOne(optional = false)
     private Picture picture;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Post> posts;
 
     public String getUsername() {
         return username;
@@ -38,5 +48,19 @@ public class User extends BaseEntity{
 
     public void setPicture(Picture picture) {
         this.picture = picture;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("User: %s\n" +
+                "Post count: %d\n"
+                , username, posts.size(),
+                posts
+                .forEach(p -> System.out.printf("""
+                        ==Post Details:
+                        ----Caption: %s
+                        ----Picture Size: %.2f
+                        
+                        """, p.getCaption(), p.getPicture().getSize())));
     }
 }

@@ -1,9 +1,8 @@
-package softuni.exam.instagraphlite.models;
+package softuni.exam.instagraphlite.models.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity(name = "posts")
 public class Post extends BaseEntity{
