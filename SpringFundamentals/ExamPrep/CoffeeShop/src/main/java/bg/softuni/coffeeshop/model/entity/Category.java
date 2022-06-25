@@ -26,12 +26,7 @@ public class Category extends BaseEntity {
         return neededTime;
     }
 
-    public void setNeededTime() {
-        switch (name) {
-            case Drink -> this.neededTime = 1;
-            case Coffee -> this.neededTime = 2;
-            case Cake -> this.neededTime = 10;
-            case Other -> this.neededTime = 5;
-        }
+    public void setNeededTime(int neededTime) {
+        this.neededTime = neededTime;
     }
 }
