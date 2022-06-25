@@ -23,9 +23,9 @@
             </h3>
         </div>
         <div class="container bg-blur rounded p-5 mt-5 w-75 ">
-            <form action="/" method=""
+            <form th:action="@{/users/login}" method="post" th:object="${userLoginBindingModel}"
                   class="text-center text-light">
-                <h3 class="mt-5 text-center">
+                <h3 th:if="${isFound == false}" class="mt-5 text-center">
                     <strong class="bg-blur rounded text-danger">
                         Wrong username and password combination.
                     </strong>
@@ -33,11 +33,11 @@
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control"
+                        <input th:field="*{username}" th:errorclass="is-invalid" type="text" class="form-control"
                                id="username"
                                aria-describedby="usernameHelpInline" placeholder="Username">
                         <small id="usernameHelpInline"
-                               class="bg-danger text-light rounded">
+                               class="invalid-feedback bg-danger text-light rounded">
                             Username length must be between 5 and 20 characters.
                         </small>
                     </div>
@@ -45,11 +45,11 @@
                 <div class="form-group row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control"
+                        <input th:field="*{password}" th:errorclass="is-invalid" type="password" class="form-control"
                                id="password"
                                aria-describedby="passwordHelpInline" placeholder="Password">
                         <small id="passwordHelpInline"
-                               class="bg-danger text-light rounded">
+                               class="invalid-feedback bg-danger text-light rounded">
                             Password length must be more than 3 characters.
                         </small>
                     </div>
