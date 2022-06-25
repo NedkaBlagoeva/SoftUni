@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OrderController {
 
     @GetMapping("/add")
-    public String add(){
+    public String add() {
         return "order-add";
     }
 
     @PostMapping("/add")
-    public String postAdd(){
-
+    public String postAdd() {
+        return null;
     }
 }

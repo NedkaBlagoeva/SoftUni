@@ -1,15 +1,26 @@
 package bg.softuni.coffeeshop.model.binding;
 
 import bg.softuni.coffeeshop.model.enums.CategoryEnum;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class OrderAddBindingModel {
 
+    @Size(min = 3, max = 20)
     private String name;
+
+    @Positive
     private BigDecimal price;
+
+    @PastOrPresent
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:ss")
     private LocalDateTime orderTime;
+
+    @NotNull
+    @NotBlank
     private CategoryEnum category;
     private String description;
 
