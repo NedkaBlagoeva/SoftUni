@@ -1,30 +1,28 @@
-package bg.softuni.coffeeshop.model.binding;
+package bg.softuni.coffeeshop.model.service;
 
+import bg.softuni.coffeeshop.model.entity.User;
 import bg.softuni.coffeeshop.model.enums.CategoryEnum;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class OrderAddBindingModel {
+public class OrderServiceModel {
 
-    @Size(min = 3, max = 20)
+    private Long id;
     private String name;
-
-    @Positive
     private BigDecimal price;
-
-    @PastOrPresent
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:ss")
     private LocalDateTime orderTime;
-
-    @NotNull
-    @NotBlank
     private CategoryEnum category;
-
-    @Size(min = 5)
     private String description;
+    private User employee;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -64,5 +62,13 @@ public class OrderAddBindingModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(User employee) {
+        this.employee = employee;
     }
 }
