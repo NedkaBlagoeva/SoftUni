@@ -44,4 +44,8 @@ public class OrderService {
                 .map(order -> modelMapper.map(order, OrderViewModel.class))
                 .collect(Collectors.toList());
     }
+
+    public void readyOrder(Long id) {
+        orderRepository.deleteById(id);
+    }
 }

@@ -27,7 +27,7 @@
                          width="50px" height="50px">
                     <span th:text="*{name}" class="p-3">Name</span>
                     <span th:text="*{price}" class="p-3">Price</span>
-                    <a class="ml-3 p-3 text-warning" href="/">Ready</a>
+                    <a class="ml-3 p-3 text-warning" th:href="@{/orders/ready/{id}(id = *{id})}">Ready</a>
                 </div>
             </div>
             <div class="col-5 bg-blur rounded m-auto pb-3">

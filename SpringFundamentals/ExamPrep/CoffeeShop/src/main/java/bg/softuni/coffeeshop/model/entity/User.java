@@ -29,7 +29,7 @@ public class User extends BaseEntity{
     }
 
     public void setUsername(String username) {
-        username = username;
+        this.username = username;
     }
 
     public String getFirstName() {
