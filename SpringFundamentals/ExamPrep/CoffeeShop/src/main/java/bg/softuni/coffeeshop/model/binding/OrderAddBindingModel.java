@@ -16,11 +16,10 @@ public class OrderAddBindingModel {
     private BigDecimal price;
 
     @PastOrPresent
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:ss")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime orderTime;
 
     @NotNull
-    @NotBlank
     private CategoryEnum category;
 
     @Size(min = 5)

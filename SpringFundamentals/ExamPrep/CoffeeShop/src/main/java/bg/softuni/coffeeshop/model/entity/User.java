@@ -1,8 +1,7 @@
 package bg.softuni.coffeeshop.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +20,9 @@ public class User extends BaseEntity{
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "employee")
+    private Set<Order> orders;
 
     public String getUsername() {
         return username;
@@ -60,5 +62,13 @@ public class User extends BaseEntity{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }
